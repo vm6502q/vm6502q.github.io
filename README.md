@@ -1,1 +1,1 @@
-http://vm6502q.readthedocs.io/en/latest/
+http://qrack.readthedocs.io/en/latest/
