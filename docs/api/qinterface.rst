@@ -15,7 +15,7 @@ This provides a basic interface with a wide-ranging set of functionality
 Creating a QInterface
 -----------------------
 
-There's three primary implementations of a ``QInterface``:
+There are four primary implementations of a ``QInterface``:
 
 .. doxygenenum:: QInterfaceEngine
 
@@ -91,21 +91,31 @@ Single Register Gates
 .. doxygenfunction:: Qrack::QInterface::Z(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CY(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CZ(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RT(double, bitLenInt)
-
+.. doxygenfunction:: Qrack::QInterface::RT(real1, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RTDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RX(double, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRT(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRTDyad(int, int, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RX(real1, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RXDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRX(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRX(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRXDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RY(double, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RY(real1, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RYDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRY(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRY(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRYDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RZ(double, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RZ(real1, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RZDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRZ(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRZ(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZDyad(int, int, bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::Exp(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpDyad(int, int, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpX(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpXDyad(int, int, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpY(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpYDyad(int, int, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpZ(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt)
 
 Register-wide Gates
 ~~~~~~~~~~~~~~~~~~~
@@ -128,20 +138,28 @@ Register-wide Gates
 .. doxygenfunction:: Qrack::QInterface::Z(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CY(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CZ(bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RT(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RT(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RTDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RX(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RX(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RXDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRX(double, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRX(real1, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRXDyad(int, int, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RY(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RY(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RYDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRY(double, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRY(real1, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRYDyad(int, int, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RZ(double, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RZ(real1, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RZDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRZ(double, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRZ(real1, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZDyad(int, int, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Exp(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpDyad(int, int, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpX(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpXDyad(int, int, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpY(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpYDyad(int, int, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpZ(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt, bitLenInt)
 
 Algorithmic Implementations
 ---------------------------

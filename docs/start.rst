@@ -37,29 +37,69 @@ Check out each of the major repositories into a project branch:
 Compiling
 ~~~~~~~~~
 
-.. note::
+The ``qrack`` project supports two primary implementations: OpenCL-optimized and software-only.  See :doc:`opencl` for details on installing OpenCL on some platforms, or your appropriate OS documentation. If you do not have OpenCL or do not wish to use it, supply the ``USE_OPENCL=OFF`` environment to ``cmake`` when building qrack the first time.
 
-    The ``qrack`` project supports two primary implementations: OpenCL-optimized and software-only.  See :doc:`opencl` for details on installing OpenCL on some platforms, or your appropriate OS documentation.
-
-    If you do not have OpenCL or do not wish to use it, supply the ``USE_OPENCL=OFF`` environment to ``cmake`` when building qrack the first time, and ``ENABLE_OPENCL=0`` to ``make`` when building ``vm6502q``.
-
-Compile in the ``vm6502q`` project.  This will build both the ``vm6502q`` emulator as well as the linked ``qrack`` project:
-
-.. code-block:: bash
-
-   vm6502q/ $ make
-            # OR if no OpenCL is available
-   vm6502q/ $ ENABLE_OPENCL=0 make
-
-.. note::
-
-    Qrack compiles with either double or single accuracy complex numbers. Doubles are used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices, such as accelerators. Double vectorization uses AVX, while single vectorization uses SSE 1.0.
+Qrack compiles with either double or single accuracy complex numbers. Doubles are used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices, such as accelerators. Double vectorization uses AVX, while single vectorization uses SSE 1.0.
 
 To enable float accuracy as opposed to double, run CMake with the appropriate flag:
 
 .. code-block:: bash
 
     qc/ $ cd qrack/build && cmake -DENABLE_COMPLEX8=ON ..
+
+Using the API
+~~~~~~~~~~~~~
+
+Qrack API methods operate on "QEngine" and "QUnit" objects. ("QUnit" objects are a specific optional optimization on "QEngine" objects, with the same API interface.) These objects are organized as 1-dimensional arrays of coherent qubits which can be arbitrarily entangled within the QEngine or QUnit. These object have methods that act like quantum gates, for a specified qubit index in the 1-dimensional array, as well as any analog parameters needed for the gate (like for variable angle rotation gates). Many fundamental gate methods have variants that are optimized to act on a contiguous length of qubits in the array at once. For OpenCL ``QEngineOCL`` objects, the preferred OpenCL device can be specified in the constructor. For multiprocessor ``QEngineOCLMulti`` engines, you can specify distribution of equal-sized sub-engines between available OpenCL devices. See the API reference for more details.
+
+To create a QEngine or QUnit object, you can use the factory provided in include/qfactory.hpp:
+
+.. code-block:: c
+
+    QInterfacePtr qftReg = CreateQuantumInterface(QINTERFACE_QUNIT, QINTERFACE_OPENCL, qubitCount, intPerm, rng);
+    QInterfacePtr qftReg2 = CreateQuantumInterface(QINTERFACE_OPENCL, QINTERFACE_OPENCL, qubitCount, intPerm, rng);
+
+By default, the ``Qrack::OCLEngine`` singleton attempts to compile kernels and initialize supporting OpenCL objects for all devices on a system. You can strike devices from the list to free their OpenCL resources, usually before initializing OpenCL QEngine objects:
+
+.. code-block:: c
+
+    // Initialize the singleton and get the list of devices
+    std::vector<Qrack::OCLDeviceContext> devices = OCLEngine::Instance()->GetDeviceContextPtrVector();
+    std::vector<Qrack::OCLDeviceContext> filteredDevices;
+
+    // Iterate through the list with cl::Device::getInfo to check devices for desirability
+    std::string devCheck("HD");
+    for (int i = 0; i < devices.size(); i++) {
+        // From the OpenCL C++ API headers:
+        string devName = std::string(devices[i].getInfo<CL_DEVICE_NAME>());
+        // Check properties...
+        if (devName.find(devCheck) != string::npos) {
+            // Take or remove devices selectively
+            filteredDevices.push_back(devices[i]);
+        }
+    }
+
+    // Replace the original list with the filtered one, and (with an optional argument) specify the default device.
+    OCLEngine::Instance()->SetDeviceContextPtrVector(filteredDevices, filteredDevices[0]);
+
+With or without this kind of filtering, the device or devices used by OpenCL-based engines can be specified explicitly in their constructors:
+
+.. code-block:: c
+    
+    // "deviceID" is the (int) index of the desired device in the OCLEngine list:
+    int deviceID = 0;
+    QEngineOCL qEngine = QEngineOCL(qBitCount, initPermutation, random_generator_pointer, deviceID);
+
+    // "deviceIDs" is a std::vector<int> of indices of the desired device in the OCLEngine list.
+    // This also might be used for a simple form of load-balancing, like so:
+    std::vector<int> deviceIDs(4);
+    // Three equally-sized sub-engines go to device index 1, and a fourth sub-engine goes to device index 0.
+    // The number of sub-engines must be a power of two.
+    deviceIDs[0] = 1;
+    deviceIDs[0] = 1;
+    deviceIDs[0] = 1;
+    deviceIDs[0] = 0;
+    QEngineOCL qEngineMulti = QEngineOCLMulti(qBitCount, initPermutation, deviceIDs, random_generator_pointer);
 
 Testing
 ~~~~~~~
