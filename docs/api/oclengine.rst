@@ -7,7 +7,7 @@ OCLEngine
 
 Defined in `common/oclengine.hpp <https://github.com/vm6502q/qrack/blob/master/include/common/oclengine.hpp>`_.
 
-This provides a basic interface with a wide-ranging set of functionality 
+This provides a basic interface with a wide-ranging set of functionality.
 
 .. doxygenclass:: Qrack::OCLEngine
     :project: qrack
