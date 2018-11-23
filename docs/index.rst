@@ -32,7 +32,7 @@ Finally, a `6502 toolchain <https://github.com/vm6502q/cc65>`_ - based on `CC65 
 Copyright
 ---------
 
-Copyright (c) Daniel Strano 2017 and the Qrack contributors. All rights reserved.
+Copyright (c) Daniel Strano 2017-2018 and the Qrack contributors. All rights reserved.
 
 Daniel Strano would like to specifically note that Benn Bollay is almost entirely responsible for the implementation of QUnit and tooling, including unit tests, in addition to large amounts of work on the documentation and many other various contributions in intensive reviews. Also, thank you to Marek Karcz for supplying an awesome base classical 6502 emulator for proof-of-concept.
 
