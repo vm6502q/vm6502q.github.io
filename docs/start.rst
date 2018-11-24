@@ -114,7 +114,7 @@ This may take a few minutes to complete, depending on the strength of the system
 
 .. note::
 
-    The unittests, by default, run against all supported engines.  If only a specific engine type is desired, the ``--disable-opencl`` or ``--disable-software`` command line parameters may be supplied to the ``unittest`` binary.
+    The unittests, by default, run against all supported engines.  If only a specific engine type is desired, the ``--layer-...`` and ``--proc-...`` command line parameters supplied to the ``unittest`` binary selectively specify QInterface layers and processors types to test. (Pass ``-?`` to unittest on the command line to see all available layer and processor type command line options.)
 
 
 Embedding Qrack
