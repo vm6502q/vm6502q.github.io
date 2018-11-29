@@ -72,7 +72,7 @@ Disclaimers
 Method
 ******
 
-100 timed trials of each method were run for each qubit count between 3 and 28 qubits. CPU and GPU benchmarks were run on two respective systems that could represent realistic use cases for each engine type. An AWS p3.2xlarge running Ubuntu Server 18.04LTS was used for GPU benchmarks. An Alienware 17 R5 with an Intel(R) Core(TM) i7-8750H running Ubuntu 18.04LTS was used for CPU benchmarks. The average and quartile boundary values of each set of 100 were recorded and graphed. Grover's search to invert a black box subroutine, or "oracle," was similarly implemented for trials between 3 and 18 qubits. Grover's algorithm was iterated an optimal number of times, vs. qubit count, to maximize probability on a half cycle of the algorithm's period, being :math:`floor\left[\frac{\pi}{4asin\left(1/\sqrt{2^N}\right)}\right]` iterations for :math:`N` qubits.
+100 timed trials of single and parallel gates were run for each qubit count between 3 and 28 qubits. CPU and GPU benchmarks were run on two respective systems that could represent realistic use cases for each engine type. An AWS p3.2xlarge running Ubuntu Server 18.04LTS was used for GPU benchmarks. An Alienware 17 R5 with an Intel(R) Core(TM) i7-8750H running Ubuntu 18.04LTS was used for CPU benchmarks. The average and quartile boundary values of each set of 100 were recorded and graphed. Grover's search to invert a black box subroutine, or "oracle," was similarly implemented for trials between 3 and 18 qubits. Grover's algorithm was iterated an optimal number of times, vs. qubit count, to maximize probability on a half cycle of the algorithm's period, being :math:`floor\left[\frac{\pi}{4asin\left(1/\sqrt{2^N}\right)}\right]` iterations for :math:`N` qubits. A quantum fourier transform was run for 100 trials between 3 and 26 qubits on the GPU engine types.
 
 Heap profiling was carried out with Valgrind Massif. Heap sampling was limited but ultimately sufficient to show statistical confidence.
 
@@ -101,6 +101,10 @@ Grover's algorithm is a relatively ideal test case, in that it allows a modicum 
 
 [Broda2016]_ discusses how Grover's might be adapted in practicality to actually "search an unstructured database," or search an unstructured lookup table, and Qrack is also capable of applying Grover's search to a lookup table with its IndexedLDA, IndexedADC, and IndexedSBC methods. Benchmarks are not given for this arguably more practical application of the algorithm, because few other quantum computer simulator libraries implement it, yet.
 
+The Quantum Fourier transform (QFT) is another realistic test case. QEngineCPU took approximately 100 seconds per 1 trial (of 100) for 22 qubits and approximately 200 seconds for a 23 qubit QFT, and testing the QEngineCPU type therefore become prohibitive, for the full range of qubits between 3 and 26. To avoid confusion in the graph, and since QEngineCPU might therefore be impractical for large QFTs, we leave both it and its QUnit/QFusion variant off the graph. At the end of every QFT trial, explicit separability was reset with a measurement operation across the entire Fourier-transformed unit of qubits, i.e. every trial was the ideal case for QUnit of entirely separable qubits, which might not always be realistic. However, the whole set is fairly representative of the difference between best case (total initial separability for QUnit) and worst case (total entanglement, with QUnit's performance limiting to the QEngineGPU case, plus modest wrapping and separability testing overhead from the QUnit layer).
+
+.. image:: performance/qft.png
+
 Discussion
 **********
 
@@ -112,6 +116,8 @@ Further Work
 Qrack contains an experimental multiprocessor type, previously "QEngineOCLMulti" based on the algorithms developed in Intel's [QHiPSTER]_, currently replaced in favor of the simpler QUnitMulti type, which dispatches different separable subsystems to different processors. Current and previous generation multiprocessor types fail to outperform the single processor QEngineOCL. We include it in the current release to help the open source community realize a practical multiprocessor implementation in the context of Qrack.
 
 Qrack has been successfully run on multiple processors at once, and even on clusters, but not with practical performance for real application; a good next step is to redesign the multiprocessor engine type(s) to actually outperform the single device engine. Also, CPU "software" implementation parallelism relies on certain potentially expensive standard library functionality, like lambda expressions parallel "futures," and might still be optimized. Further, there is still opportunity for better explicit qubit subsystem separation in QUnit.
+
+With a new generation of "VPU" processors coming in 2019, (for visual inference,) it might be possible to co-opt VPU capabilities for inference of raw state vector features, such as Schmidt separability, to improve the performance of QUnit. The authors of Qrack have just started looking at this hardware for this purpose.
 
 We will also develop and maintain systematic comparisons to published benchmarks of quantum computer simulation standard libraries, as they arise.
 
