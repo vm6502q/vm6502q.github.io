@@ -60,14 +60,15 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qengineocl
     api/qunitmulti
     api/6502
-    
+
 .. The #http:// is a hack to get around Sphinx's re parser for links,
    see https://stackoverflow.com/a/31820846 for more details.
+
 .. Additionally, the links are hard-coded to /en/latest because there's
    no known mechanism for linking from the top of the deployed directory,
    as Sphinx doesn't know about that when rendering the html.  Not ideal,
    but it will suffice until a more sophisticated user story is identified.
-
+  
 .. toctree::
     :hidden:
     :caption: Doxygen

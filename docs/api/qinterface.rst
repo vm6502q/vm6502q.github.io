@@ -21,7 +21,7 @@ There are four primary implementations of a ``QInterface``:
 
 These enums can be passed to an allocator to create a ``QInterface`` of that specified implementation type:
 
-.. doxygenfunction:: Qrack::CreateQuantumInterface(QInterfaceEngine, QInterfaceEngine, QInterfaceEngine, Ts... args)
+.. doxygenfunction:: Qrack::CreateQuantumInterface(QInterfaceEngine, QInterfaceEngine, QInterfaceEngine, Ts...)
 
 Constructors
 ------------
