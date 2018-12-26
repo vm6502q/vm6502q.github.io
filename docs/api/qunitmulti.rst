@@ -11,5 +11,5 @@ Qrack::QUnitMulti is an experimental QUnit type, that distributes separable subs
 
 The API is provided by Qrack::QInterface. However, QUnitMulti has a custom constructor:
 
-.. doxygenfunction:: Qrack::QEngineOCLMulti::QEngineOCLMulti(bitLenInt, bitCapInt, std::shared_ptr<std::default_random_engine> rgp, complex phaseFac, bool, bool);
+.. doxygenfunction:: Qrack::QUnitMulti::QUnitMulti(bitLenInt, bitCapInt, std::shared_ptr<std::default_random_engine>, complex, bool, bool)
 
