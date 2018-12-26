@@ -60,16 +60,23 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qengineocl
     api/qunitmulti
     api/6502
+    
+.. The #http:// is a hack to get around Sphinx's re parser for links,
+   see https://stackoverflow.com/a/31820846 for more details.
+.. Additionally, the links are hard-coded to /en/latest because there's
+   no known mechanism for linking from the top of the deployed directory,
+   as Sphinx doesn't know about that when rendering the html.  Not ideal,
+   but it will suffice until a more sophisticated user story is identified.
 
 .. toctree::
     :hidden:
     :caption: Doxygen
     :maxdepth: 2
 
-    QInterface <_static/doxygen/classQrack_1_1QInterface.html#http://>
-    QUnit <_static/doxygen/classQrack_1_1QUnit.html#http://>
-    QEngineCPU <_static/doxygen/classQrack_1_1QEngineCPU.html#http://>
-    QEngineOCL <_static/doxygen/classQrack_1_1QEngineOCL.html#http://>
-    QUnitMulti <_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
-    Complex16Simd <_static/doxygen/structQrack_1_1Complex16Simd.html#http://>
+    QInterface </en/latest/_static/doxygen/classQrack_1_1QInterface.html#http://>
+    QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
+    QEngineCPU </en/latest/_static/doxygen/classQrack_1_1QEngineCPU.html#http://>
+    QEngineOCL </en/latest/_static/doxygen/classQrack_1_1QEngineOCL.html#http://>
+    QUnitMulti </en/latest/_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
+    Complex16Simd </en/latest/_static/doxygen/structQrack_1_1Complex16Simd.html#http://>
 
