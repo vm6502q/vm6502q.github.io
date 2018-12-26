@@ -23,6 +23,7 @@ Build Status
 
 Introduction
 ------------
+
 `Qrack <https://github.com/vm6502q/qrack>`_ is a C++ quantum bit simulator, with the ability to support arbitrary numbers of entangled qubits - up to system limitations.  Suitable for embedding in other projects, the :cpp:class:`Qrack::QInterface` contains a full and performant collection of standard quantum gates, as well as variations suitable for register operations and arbitrary rotations.
 
 As a demonstration of the :cpp:class:`Qrack::QInterface` implementation, a MOS-6502 microprocessor [MOS-6502]_ virtual machine has been modified with a set of new opcodes (:ref:`mos-6502q-opcodes`) supporting quantum operations.  The `vm6502q <https://github.com/vm6502q/vm6502q>`_ virtual machine exposes new integrated quantum opcodes such as Hadamard transforms and an X-indexed LDA, with the X register in superposition, across a page of memory.  An assembly example of a Grover's search with a simple oracle function is demonstrated in the `examples <https://github.com/vm6502q/examples>`_ repository.
@@ -32,7 +33,7 @@ Finally, a `6502 toolchain <https://github.com/vm6502q/cc65>`_ - based on `CC65 
 Copyright
 ---------
 
-Copyright (c) Daniel Strano 2017-2018 and the Qrack contributors. All rights reserved.
+Copyright (c) Daniel Strano 2017 and the Qrack contributors. All rights reserved.
 
 Daniel Strano would like to specifically note that Benn Bollay is almost entirely responsible for the implementation of QUnit and tooling, including unit tests, in addition to large amounts of work on the documentation and many other various contributions in intensive reviews. Also, thank you to Marek Karcz for supplying an awesome base classical 6502 emulator for proof-of-concept.
 

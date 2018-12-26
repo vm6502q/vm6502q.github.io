@@ -23,6 +23,11 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Bitwise Hadamard on the X Register
 
+    * - HAY
+      - 0x04
+      - Implied
+      - Bitwise Hadamard on the Y Register
+
     * - SEN
       - 0x0F
       - Implied
@@ -33,10 +38,15 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Apply a bitwise Pauli X on the Accumulator
 
-    * - PXA
+    * - PXX
       - 0x13
       - Implied
       - Apply a bitwise Pauli X on the X Register
+
+    * - PXY
+      - 0x0C
+      - Implied
+      - Apply a bitwise Pauli X on the Y Register
 
     * - HAC
       - 0x17
@@ -48,10 +58,15 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Apply a bitwise Pauli Y on the Accumulator
 
-    * - PYA
+    * - PYX
       - 0x1B
       - Implied
       - Apply a bitwise Pauli Y on the X Register
+
+    * - PYY
+      - 0x1C
+      - Implied
+      - Apply a bitwise Pauli Y on the Y Register
 
     * - CLQ
       - 0x1F
@@ -78,10 +93,15 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Apply a bitwise Pauli Z on Accumulator
 
-    * - PZA
+    * - PZX
       - 0x33
       - Implied
       - Apply a bitwise Pauli Z on the X Register
+
+    * - PZY
+      - 0x34
+      - Implied
+      - Apply a bitwise Pauli Z on the Y Register
 
     * - RTA
       - 0x3A
@@ -92,6 +112,11 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - 0x3B
       - Implied
       - Bitwise quarter rotation on :math:`\rvert1\rangle` axis for the X Register
+
+    * - RTY
+      - 0x3C
+      - Implied
+      - Bitwise quarter rotation on :math:`\rvert1\rangle` axis for the Y Register
 
     * - SEQ
       - 0x1F
@@ -108,6 +133,11 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Bitwise quarter rotation on X axis for the X Register
 
+    * - RXY
+      - 0x44
+      - Implied
+      - Bitwise quarter rotation on X axis for the Y Register
+
     * - CLZ
       - 0x47
       - Implied
@@ -123,10 +153,10 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Bitwise quarter rotation on Z axis for the X Register
 
-    * - RZX
-      - 0x5B
+    * - RZY
+      - 0x5C
       - Implied
-      - Bitwise quarter rotation on Z axis for the X Register
+      - Bitwise quarter rotation on Z axis for the Y Register
 
     * - FTA
       - 0x62
@@ -138,15 +168,30 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Implied
       - Quantum Fourier Transform on the X register
 
+    * - FTY
+      - 0x64
+      - Implied
+      - Quantum Fourier Transform on the Y register
+
     * - ADC
       - 0x75
       - Zero page X addressing
-      - ADd with Carry, Zero Page indexed, will add in superposition if the X register is superposed. Results in the Accumulator and carry flag become entangled with the X register, such that the result of the addition is entangled with the address loaded from in the X register. (Addressing past the zero page loops to the start.
+      - ADd with Carry, Zero Page indexed, will add in superposition if the X register is superposed. Results in the Accumulator and carry flag become entangled with the X register, such that the result of the addition is entangled with the address loaded from in the X register. (Addressing past the zero page loops to the start.)
 
     * - ADC
       - 0x7D
       - Absolute X addressing
       - ADd with Carry, Zero Page indexed, will add in superposition if the X register is superposed. Results in the Accumulator and carry flag become entangled with the X register, such that the result of the addition is entangled with the address loaded from in the X register.
+
+    * - ADC
+      - 0x71
+      - Implied Y addressing
+      - ADd with Carry, Implied Y indexed, will add in superposition if the Y register is superposed. Results in the Accumulator and carry flag become entangled with the Y register, such that the result of the addition is entangled with the address loaded from in the Y register.
+
+    * - ADC
+      - 0x79
+      - Absolute Y addressing
+      - ADd with Carry, Zero Page indexed, will add in superposition if the Y register is superposed. Results in the Accumulator and carry flag become entangled with the Y register, such that the result of the addition is entangled with the address loaded from in the Y register.
 
     * - TXA
       - 0x8A
@@ -161,7 +206,7 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
     * - TAY
       - 0xA8
       - Implied
-      - Transfer Accumulator Y register, will also collapse superposition of the Accumulator
+      - Transfer Accumulator Y register, will maintain superposition of the Accumulator, entangling it to be the same as the Y register when measured
 
     * - TAX
       - 0x8A
@@ -183,6 +228,21 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - Zero page X addressing
       - SuBtract with Carry, Zero Page indexed, will subtract in superposition if the X register is superposed. Results in the Accumulator and carry flag become entangled with the X register, such that the result of the addition is entangled with the address loaded from in the X register. (Addressing past the zero page loops to the start.
 
+    * - SBC
+      - 0xFD
+      - Absolute X addressing
+      - SuBtract with Carry, Zero Page indexed, will subtract in superposition if the X register is superposed. Results in the Accumulator and carry flag become entangled with the X register, such that the result of the addition is entangled with the address loaded from in the X register.
+
+    * - ADC
+      - 0xF1
+      - Implied Y addressing
+      - SuBtract with Carry, Implied Y indexed, will subtract in superposition if the Y register is superposed. Results in the Accumulator and carry flag become entangled with the Y register, such that the result of the subtraction is entangled with the address loaded from in the Y register.
+
+    * - ADC
+      - 0xF9
+      - Absolute Y addressing
+      - ADd with Carry, Zero Page indexed, will subtract in superposition if the Y register is superposed. Results in the Accumulator and carry flag become entangled with the Y register, such that the result of the subtraction is entangled with the address loaded from in the Y register.
+
     * - QZZ
       - 0xF7
       - Implied
@@ -197,11 +257,6 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
       - 0xFB
       - Implied
       - Apply Pauli Z operator to carry flag
-
-    * - SBC
-      - 0xFD
-      - Absolute X addressing
-      - SuBtract with Carry, Zero Page indexed, will subtract in superposition if the X register is superposed. Results in the Accumulator and carry flag become entangled with the X register, such that the result of the addition is entangled with the address loaded from in the X register.
 
 .. list-table:: 6502Q Modified Opcodes
     :widths: auto
@@ -242,4 +297,7 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
 
     * - STX
       - STore X register, will also collapse superposition of the X register
+
+    * - STY
+      - STore Y register, will also collapse superposition of the Y register
 

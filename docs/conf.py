@@ -25,9 +25,9 @@ run_doxygen('qrack')
 
 # -- Project information -----------------------------------------------------
 
-project = u'vm6502q'
-copyright = u'2018, vm6502q'
-author = u'vm6502q'
+project = u'qrack'
+copyright = u'2018, qrack'
+author = u'qrack'
 
 # The short X.Y version
 version = u''
@@ -118,7 +118,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'vm6502qdoc'
+htmlhelp_basename = 'qrackdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -145,8 +145,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'vm6502q.tex', u'vm6502q Documentation',
-     u'vm6502q', 'manual'),
+    (master_doc, 'qrack.tex', u'qrack Documentation',
+     u'qrack', 'manual'),
 ]
 
 
@@ -155,7 +155,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'vm6502q', u'vm6502q Documentation',
+    (master_doc, ' qrack', u'qrack Documentation',
      [author], 1)
 ]
 
@@ -166,8 +166,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'vm6502q', u'vm6502q Documentation',
-     author, 'vm6502q', 'One line description of project.',
+    (master_doc, 'qrack', u'qrack Documentation',
+     author, 'qrack', 'Qrack library documentation.',
      'Miscellaneous'),
 ]
 
