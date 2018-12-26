@@ -2,10 +2,10 @@
 
 .. Copyright (c) 2018
 
-QEngineOCLMulti
+QUnitMulti
 ========================
 
-Defined in `qengine_opencl_multi.hpp <https://github.com/vm6502q/qrack/blob/master/include/qunitmulti.hpp>`_.
+Defined in `qunitmulti.hpp <https://github.com/vm6502q/qrack/blob/master/include/qunitmulti.hpp>`_.
 
 Qrack::QUnitMulti is an experimental QUnit type, that distributes separable subsystems to multiple OpenCL devices, if multiple devices are available. It does not yet give a practical speed return, for the use of multiple devices, and it might be unstable. It is included to help development of a practical multiprocessor type.
 

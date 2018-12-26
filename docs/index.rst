@@ -69,6 +69,6 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     QUnit <_static/doxygen/classQrack_1_1QUnit.html#http://>
     QEngineCPU <_static/doxygen/classQrack_1_1QEngineCPU.html#http://>
     QEngineOCL <_static/doxygen/classQrack_1_1QEngineOCL.html#http://>
-    QEngineOCLMulti <_static/doxygen/classQrack_1_1QEngineOCLMulti.html#http://>
+    QUnitMulti <_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
     Complex16Simd <_static/doxygen/structQrack_1_1Complex16Simd.html#http://>
 
