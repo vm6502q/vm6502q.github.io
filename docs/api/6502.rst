@@ -280,6 +280,9 @@ Bellow is a list of new and modified opcodes with their binary and function. If 
     * - CPX
       - CoMPare X register. If quantum mode is off, this opcode functions as in the original 6502. If quantum mode is on, and if a flag would be set to 1 in the original system, and if this flag is already on, then this instead flips the phase of the quantum registers, for each such flag.
 
+    * - CPY
+      - CoMPare Y register. If quantum mode is off, this opcode functions as in the original 6502. If quantum mode is on, and if a flag would be set to 1 in the original system, and if this flag is already on, then this instead flips the phase of the quantum registers, for each such flag.
+
     * - EOR
       - Bitwise EOR with the Accumulator, will also collapse the quantum state of the Accumulator
 
