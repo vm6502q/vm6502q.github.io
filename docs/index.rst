@@ -57,7 +57,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qinterface
     api/oclengine
     api/qengineocl
-    api/qengineoclmulti
+    api/qunitmulti
     api/6502
 
 .. toctree::
