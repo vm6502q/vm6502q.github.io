@@ -55,6 +55,7 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Cohere(std::vector<QInterfacePtr>)
 
 .. doxygenfunction:: Qrack::QInterface::Decohere
+.. doxygenfunction:: Qrack::QInterface::TryDecohere
 
 .. doxygenfunction:: Qrack::QInterface::Dispose
 
@@ -71,6 +72,8 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
 
 Quantum Gates
 -------------
