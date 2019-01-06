@@ -58,6 +58,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/oclengine
     api/qenginecpu
     api/qengineocl
+    api/qunit
     api/qunitmulti
     api/6502
 
@@ -78,6 +79,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
     QEngineCPU </en/latest/_static/doxygen/classQrack_1_1QEngineCPU.html#http://>
     QEngineOCL </en/latest/_static/doxygen/classQrack_1_1QEngineOCL.html#http://>
+    QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
     QUnitMulti </en/latest/_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
     Complex16Simd </en/latest/_static/doxygen/structQrack_1_1Complex16Simd.html#http://>
 
