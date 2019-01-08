@@ -136,8 +136,8 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::ExpYDyad(int, int, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpZ(real1, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Exp(bitLenInt*, bitLenInt, bitLenInt, complex*, bool)
-.. doxygenfunction:: Qrack::QInterface::Log(bitLenInt*, bitLenInt, bitLenInt, complex*, bool)
+.. doxygenfunction:: Qrack::QInterface::Exp(bitLenInt *, bitLenInt, bitLenInt, complex *, bool)
+.. doxygenfunction:: Qrack::QInterface::Log(bitLenInt *, bitLenInt, bitLenInt, complex *, bool)
 
 Register-wide Gates
 ~~~~~~~~~~~~~~~~~~~
