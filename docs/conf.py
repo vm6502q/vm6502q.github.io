@@ -26,7 +26,7 @@ run_doxygen('qrack')
 # -- Project information -----------------------------------------------------
 
 project = u'qrack'
-copyright = u'2018, qrack'
+copyright = u'Daniel Strano 2017-2019 and the Qrack contributors. All rights reserved.'
 author = u'qrack'
 
 # The short X.Y version
