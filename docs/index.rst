@@ -30,7 +30,7 @@ The developers of Qrack maintain a `fork <https://github.com/vm6502q/ProjectQ>`_
 
 As a demonstration of the :cpp:class:`Qrack::QInterface` implementation, a MOS-6502 microprocessor [MOS-6502]_ virtual machine has been modified with a set of new opcodes (:ref:`mos-6502q-opcodes`) supporting quantum operations.  The `vm6502q <https://github.com/vm6502q/vm6502q>`_ virtual machine exposes new integrated quantum opcodes such as Hadamard transforms and an X-indexed LDA, with the X register in superposition, across a page of memory.  An assembly example of a Grover's search with a simple oracle function is demonstrated in the `examples <https://github.com/vm6502q/examples>`_ repository.
 
-Finally, a `6502 toolchain <https://github.com/vm6502q/cc65>`_ - based on `CC65 <http://cc65.github.io/doc/>`_ - has been modified and enhanced to support both the new opcodes for the assembler. We have discussed potential :ref:`c-syntax-enhancements-ref`.  This is performed primarily as sandbox/exploratory work to help clarify what quantum computational software engineering might look like as the hardware reaches commoditization.
+Finally, a `6502 toolchain <https://github.com/vm6502q/cc65>`_ - based on `CC65 <http://cc65.github.io/doc/>`_ - has been modified and enhanced to support the new opcodes for the assembler. We have discussed potential :ref:`c-syntax-enhancements-ref`.  This is performed primarily as sandbox/exploratory work to help clarify what quantum computational software engineering might look like as the hardware reaches commoditization.
 
 Copyright
 ---------
