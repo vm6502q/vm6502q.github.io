@@ -37,15 +37,17 @@ Check out each of the major repositories into a project branch:
 Compiling
 ~~~~~~~~~
 
-The ``qrack`` project supports two primary implementations: OpenCL-optimized and software-only.  See :doc:`opencl` for details on installing OpenCL on some platforms, or your appropriate OS documentation. If you do not have OpenCL or do not wish to use it, supply the ``USE_OPENCL=OFF`` environment to ``cmake`` when building qrack the first time.
-
-Qrack compiles with either double or single accuracy complex numbers. Doubles are used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices, such as accelerators. Double vectorization uses AVX, while single vectorization uses SSE 1.0.
-
-To enable float accuracy as opposed to double, run CMake with the appropriate flag:
+The ``qrack`` project supports two primary implementations: OpenCL-optimized and software-only.  See :doc:`opencl` for details on installing OpenCL on some platforms, or your appropriate OS documentation. If you do not have OpenCL or do not wish to use it, supply the ``ENABLE_OPENCL=OFF`` environment to ``cmake`` when building qrack the first time.
 
 .. code-block:: bash
 
-    qc/ $ cd qrack/build && cmake -DENABLE_COMPLEX8=ON ..
+    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_PURE32=ON] [-DENABLE_VC4CL=ON] ..
+
+Qrack compiles with either double (``ENABLE_COMPLEX8=OFF``) or single (``ENABLE_COMPLEX8=ON``) accuracy complex numbers. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
+
+Vectorization (``ENABLE_COMPLEX_X2=ON``) of doubles uses AVX, while single accuracy vectorization uses SSE 1.0. Turning vectorization off at compile time removes all SIMD vectorization.
+
+Many OpenCL devices that don't support double accuracy floating point operations still support 64-bit integer types. If a device doesn't support 64-bit integer types, ``ENABLE_PURE32=OFF`` will disable all 64-bit types in OpenCL kernels, as well as SIMD. This theoretically supports the OpenCL standard on a device such as a Raspberry Pi 3. However, the VC4CL OpenCL compiler for the Raspberry Pi is still under active development and does not yet fully support trigonometry needed for Qrack. ``ENABLE_VC4CL=ON`` will enable "pure 32-bit" compilation and branch code that relies on OpenCL trigonometry, to support Qrack on the Raspberry Pi 3, but this flag will probably no longer be necessary once trigonometry is supported, at which point ``ENABLE_PURE32=ON`` should suffice instead.
 
 Using the API
 ~~~~~~~~~~~~~
