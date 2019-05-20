@@ -51,11 +51,11 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::SetQuantumState
 
-.. doxygenfunction:: Qrack::QInterface::Cohere(QInterfacePtr)
-.. doxygenfunction:: Qrack::QInterface::Cohere(std::vector<QInterfacePtr>)
+.. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr)
+.. doxygenfunction:: Qrack::QInterface::Compose(std::vector<QInterfacePtr>)
 
-.. doxygenfunction:: Qrack::QInterface::Decohere
-.. doxygenfunction:: Qrack::QInterface::TryDecohere
+.. doxygenfunction:: Qrack::QInterface::Decompose
+.. doxygenfunction:: Qrack::QInterface::TryDecompose
 
 .. doxygenfunction:: Qrack::QInterface::Dispose
 
@@ -66,6 +66,8 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::ProbReg
 
 .. doxygenfunction:: Qrack::QInterface::ProbMask
+
+.. doxygenfunction:: Qrack::QInterface::GetProbs
 
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt)
 
