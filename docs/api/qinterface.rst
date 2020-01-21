@@ -26,11 +26,7 @@ These enums can be passed to an allocator to create a ``QInterface`` of that spe
 Constructors
 ------------
 
-.. doxygenfunction:: Qrack::QInterface::QInterface(bitLenInt)
-
-.. doxygenfunction:: Qrack::QInterface::QInterface(bitLenInt, bitCapInt)
-
-.. doxygenfunction:: Qrack::QInterface::QInterface(const QInterface&)
+.. doxygenfunction:: Qrack::QInterface::QInterface(bitLenInt, qrack_rand_gen_ptr, bool, bool, bool, real1)
 
 Members
 -------
@@ -73,9 +69,27 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt, bitLenInt)
 
+.. doxygenfunction:: Qrack::QInterface::ISwap(bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::ISwap(bitLenInt, bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::SqrtSwap(bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::SqrtSwap(bitLenInt, bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::CSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
+
+.. doxygenfunction:: Qrack::QInterface::AntiCSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
+
+.. doxygenfunction:: Qrack::QInterface::CSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
+
+.. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
+
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int);
 
 Quantum Gates
 -------------
@@ -106,6 +120,13 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::IS(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::T(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::IT(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtX(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ISqrtX(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtY(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ISqrtY(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtH(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtXConjT(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ISqrtXConjT(bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::CNOT(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::AntiCNOT(bitLenInt, bitLenInt)
@@ -139,9 +160,8 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::ExpZ(real1, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Exp(bitLenInt *, bitLenInt, bitLenInt, complex *, bool)
-.. doxygenfunction:: Qrack::QInterface::Log(bitLenInt *, bitLenInt, bitLenInt, complex *, bool)
 
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt*, const bitLenInt&, bitLenInt, const complex*)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt *, const bitLenInt&, bitLenInt, const complex *)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY(const bitLenInt*, const bitLenInt&, bitLenInt, const real1*)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ(const bitLenInt*, const bitLenInt&, bitLenInt, const real1*)
 
@@ -163,6 +183,13 @@ Register-wide Gates
 .. doxygenfunction:: Qrack::QInterface::IS(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::T(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::IT(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtX(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ISqrtX(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtY(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ISqrtY(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtH(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SqrtXConjT(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ISqrtXConjT(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CNOT(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::AntiCNOT(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CCNOT(bitLenInt, bitLenInt, bitLenInt, bitLenInt)

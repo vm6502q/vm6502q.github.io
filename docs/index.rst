@@ -26,18 +26,16 @@ Introduction
 
 `Qrack <https://github.com/vm6502q/qrack>`_ is a C++ quantum bit and gate simulator, with the ability to support arbitrary numbers of entangled qubits - up to system limitations.  Suitable for embedding in other projects, the :cpp:class:`Qrack::QInterface` contains a full and performant collection of standard quantum gates, as well as variations suitable for register operations and arbitrary rotations.
 
-The developers of Qrack maintain a `fork <https://github.com/vm6502q/ProjectQ>`_ of the `ProjectQ <https://github.com/ProjectQ-Framework/ProjectQ>`_ quantum computer compiler which can use Qrack as the simulator, generally. This stack is also compatible with the `SimulaQron <https://github.com/SoftwareQuTech/SimulaQron>`_ quantum network simulator. (Qrack's developers are not directly affiliated with either of those projects, but we thank them for their contribution to the open source quantum computing community!)
+The developers of Qrack maintain a `fork <https://github.com/vm6502q/ProjectQ>`_ of the `ProjectQ <https://github.com/ProjectQ-Framework/ProjectQ>`_ quantum computer compiler which can use Qrack as the simulator, generally. This stack is also compatible with the `SimulaQron <https://github.com/SoftwareQuTech/SimulaQron>`_ quantum network simulator. Further, we maintain a `QrackProvider <https://github.com/vm6502q/qiskit-qrack-provider>`_ for `Qiskit <https://qiskit.org/>`_. Both ProjectQ and Qiskit integrations for Qrack support the `PennyLane <https://pennylane.ai/>`_ stack. (For Qiskit, a `fork <https://github.com/vm6502q/pennylane-qiskit>`_ of the Qiskit plugin provides support for a "QrackDevice".) Qrack's developers are not directly affiliated with any of these projects, but we thank them for their contribution to the open source quantum computing community!
 
 As a demonstration of the :cpp:class:`Qrack::QInterface` implementation, a MOS-6502 microprocessor [MOS-6502]_ virtual machine has been modified with a set of new opcodes (:ref:`mos-6502q-opcodes`) supporting quantum operations.  The `vm6502q <https://github.com/vm6502q/vm6502q>`_ virtual machine exposes new integrated quantum opcodes such as Hadamard transforms and an X-indexed LDA, with the X register in superposition, across a page of memory.  An assembly example of a Grover's search with a simple oracle function is demonstrated in the `examples <https://github.com/vm6502q/examples>`_ repository.
-
-Finally, a `6502 toolchain <https://github.com/vm6502q/cc65>`_ - based on `CC65 <http://cc65.github.io/doc/>`_ - has been modified and enhanced to support the new opcodes for the assembler. We have discussed potential :ref:`c-syntax-enhancements-ref`.  This is performed primarily as sandbox/exploratory work to help clarify what quantum computational software engineering might look like as the hardware reaches commoditization.
 
 Copyright
 ---------
 
-Copyright (c) Daniel Strano 2017-2019 and the Qrack contributors. All rights reserved.
+Copyright (c) Daniel Strano 2017-2020 and the Qrack contributors. All rights reserved.
 
-Daniel Strano would like to specifically note that Benn Bollay is almost entirely responsible for the implementation of QUnit and tooling, including unit tests, in addition to large amounts of work on the documentation and many other various contributions in intensive reviews. Also, thank you to Marek Karcz for supplying an awesome base classical 6502 emulator for proof-of-concept.
+Daniel Strano would like to specifically note that Benn Bollay is almost entirely responsible for the original implementation of QUnit and tooling, including unit tests, in addition to large amounts of work on the documentation and many other various contributions in intensive reviews. Also, thank you to Marek Karcz for supplying an awesome base classical 6502 emulator for proof-of-concept.
 
 .. toctree::
     :maxdepth: 2

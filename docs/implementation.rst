@@ -1,10 +1,10 @@
 Implementation
 ==============
 
-QInterface
+QEngine
 --------------------------------
 
-A `Qrack::QInterface` stores a set of permutation basis complex number coefficients and operates on them with bit gates and register-like methods.
+A `Qrack::QEngine` stores a set of permutation basis complex number coefficients and operates on them with bit gates and register-like methods.
 
 The state vector indicates the probability and phase of all possible pure bit permutations, numbered from :math:`0` to :math:`2^N-1`, by simple binary counting. All operations except measurement should be "unitary," except measurement. They should be representable as a unitary matrix acting on the state vector. Measurement, and methods that involve measurement, should be the only operations that break unitarity. As a rule-of-thumb, this means an operation that doesn't rely on measurement should be "reversible." That is, if a unitary operation is applied to the state, their must be a unitary operation to map back from the output to the exact input. In practice, this means that most gate and register operations entail simply direct exchange of state vector coefficients in a one-to-one manner. (Sometimes, operations involve both a one-to-one exchange and a measurement, like the `QInterface::SetBit` method, or the logical comparison methods.)
 
@@ -14,9 +14,14 @@ To determine how state vector coefficients should be exchanged in register-wise 
 
 The act of measurement draws a random double against the probability of a bit or string of bits being in the :math:`1` state. To determine the probability of a bit being in the :math:`1` state, sum the probabilities of all permutation states where the bit is equal to :math:`1`. The probablity of a state is equal to the complex norm of its coefficient in the state vector. When the bit is determined to be :math:`1` by drawing a random number against the bit probability, all permutation coefficients for which the bit would be equal to :math:`0` are set to zero. The original probabilities of all states in which the bit is :math:`1` are added together, and every coefficient in the state vector is then divided by this total to "normalize" the probablity back to :math:`1` (or :math:`100\%`).
 
-In the ideal, acting on the state vector with only unitary matrices would preserve the overall norm of the permutation state vector, such that it would always exactly equal :math:`1`, such that on. In practice, floating point error could "creep up" over many operations. To correct we this, we normalize at least immediately before (and immediately after) measurement operations. Many operations imply only measurements by either :math:`1` or :math:`0` and will therefore not introduce floating point error, but in cases where we multiply by say :math:`1/\sqrt{2}`, we can normalize proactively. In fact, to save computational overhead, since most operations entail iterating over the entire permutation state vector once, we can calculate the norm on the fly on one operation, finish with the overall normalization constant in hand, and apply the normalization constant on the next operation, thereby avoiding having to loop twice in every operation.
+In the ideal, acting on the state vector with only unitary matrices would preserve the overall norm of the permutation state vector, such that it would always exactly equal :math:`1`, such that on. In practice, floating point error could "creep up" over many operations. To correct we this, Qrack can optionally normalize its state vector, depending on constructor arguments. Specifically, normalization is enabled in tandem with floating point error mitigation that floors very small probability amplitudes to exactly 0, below the estimated level of typical systematic float error for a gate like "H." In fact, to save computational overhead, since most operations entail iterating over the entire permutation state vector once, we can calculate the norm on the fly on one operation, finish with the overall normalization constant in hand, and apply the normalization constant on the next operation, thereby avoiding having to loop twice in every operation.
 
-`Qrack` has been implemented with ``double`` precision complex numbers. Use of single precision ``float`` could get us basically one additional qubit, twice as many bit permutations, on the same system. However, double precision complex numbers naturally align to the width of SIMD intrinsics. It is up to the developer implementing a quantum emulator, whether precision and alignment with SIMD or else one additional qubit on a system is more important.
+`Qrack` has been implemented with ``float`` precision complex numbers by default. Optional use of ``double`` precision costs us basically one additional qubit, entailing twice as many potential bit permutations, on the same system. However, double precision complex numbers naturally align to the width of SIMD intrinsics. It is up to the developer, whether precision and alignment with SIMD or else one additional qubit on a system is more important.
+
+QUnit
+--------------------------------
+
+`Qrack::QUnit` is a "fundamentally" optimized layer on top of `Qrack::QEngine` types. `QUnit` optimizations include a broadly developed, practical realization of "Schmidt decomposition," (see [Pednault2017]_,) per-qubit basis transformation with gate commutation, 2-qubit controlled gate buffering and "fusion," optimizing out global phase effects that have no effect on physical "observables," (i.e. the expectation values of Hermitian operators,) a classically efficient SWAP still equivalent to the quantum operation, and many "syngeristic" and incidental points of optimization on top of these general approaches. Publication of an academic report on Qrack and its performance is planned soon, but the `Qrack::QUnit` source code is freely publicly available to inspect.
 
 VM6502Q Opcodes
 ---------------
@@ -28,15 +33,7 @@ The quantum mode flag takes the place of the ``unused`` flag bit in the original
 
 When an operation happens that would necessarily collapse all superposition in a register or a flag, the emulator keeps track of this, so it can know when its emulation is genuinely quantum as opposed to when it is simply an emulation of a quantum computer emulating a 6502. When quantum emulation is redundant overhead on classical emulation, the emulator is aware, and it performs only the necessary classical emulation. When an operation happens that could lead to superposition, the emulator switches back over to full quantum emulation, until another operation which is guaranteed to collapse a register's state occurs.
 
-CC65
-----
+.. target-notes::
 
-An assembler for the vm6502q project has been implemented by extending the instruction set of the MOS-6502. To implement the assembler, one can duplicate an assembler implementation for the 6502 and add the new instruction symbols and binary values to the table of implemented instructions.
-
-.. _c-syntax-enhancements-ref:
-
-C Syntax Enhancements
-~~~~~~~~~~~~~~~~~~~~~
-
-New higher level syntax extensions are under development using the CC65 C compiler for the 6502. These syntax extensions will leverage the quantum parallel LoaD Accumulator ("LDA") instruction, quantum paralell ADd with Carry ("ADC") instruction, and quantum parallel SuBtract with Carry ("SBC") instruction, as well as the amplitude amplification capabilities of vm6502q, using the modified behavior of status flags in "quantum mode." More is to follow soon.
+.. [Pednault2017] `Pednault, Edwin, et al. "Breaking the 49-qubit barrier in the simulation of quantum circuits." arXiv preprint arXiv:1710.05867 (2017). <https://arxiv.org/abs/1710.05867>`_
 
