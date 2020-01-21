@@ -41,7 +41,7 @@ The ``qrack`` project supports two primary implementations: OpenCL-optimized and
 
 .. code-block:: bash
 
-    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_PURE32=ON] [-DENABLE_VC4CL=ON] ..
+    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_PURE32=ON] [-DENABLE_RDRAND=ON] [-DENABLE_VC4CL=ON] ..
 
 Qrack compiles with either double (``ENABLE_COMPLEX8=OFF``) or single (``ENABLE_COMPLEX8=ON``) accuracy complex numbers. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
 
@@ -92,16 +92,6 @@ With or without this kind of filtering, the device or devices used by OpenCL-bas
     int deviceID = 0;
     QEngineOCL qEngine = QEngineOCL(qBitCount, initPermutation, random_generator_pointer, deviceID);
 
-    // "deviceIDs" is a std::vector<int> of indices of the desired device in the OCLEngine list.
-    // This also might be used for a simple form of load-balancing, like so:
-    std::vector<int> deviceIDs(4);
-    // Three equally-sized sub-engines go to device index 1, and a fourth sub-engine goes to device index 0.
-    // The number of sub-engines must be a power of two.
-    deviceIDs[0] = 1;
-    deviceIDs[0] = 1;
-    deviceIDs[0] = 1;
-    deviceIDs[0] = 0;
-    QEngineOCL qEngineMulti = QEngineOCLMulti(qBitCount, initPermutation, deviceIDs, random_generator_pointer);
 
 Testing
 ~~~~~~~
