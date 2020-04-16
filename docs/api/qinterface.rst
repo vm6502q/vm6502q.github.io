@@ -47,13 +47,14 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::SetQuantumState
 
-.. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr)
-.. doxygenfunction:: Qrack::QInterface::Compose(std::vector<QInterfacePtr>)
+.. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr, bool)
+.. doxygenfunction:: Qrack::QInterface::Compose(std::vector<QInterfacePtr>, bool)
 
 .. doxygenfunction:: Qrack::QInterface::Decompose
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
 
-.. doxygenfunction:: Qrack::QInterface::Dispose
+.. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, bitCapInt)
 
 .. doxygenfunction:: Qrack::QInterface::Prob
 
@@ -110,7 +111,7 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::CLXOR(bitLenInt, bool, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::M(bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ForceM(bitLenInt, bool, bool)
+.. doxygenfunction:: Qrack::QInterface::ForceM(bitLenInt, bool, bool, bool)
 
 .. doxygenfunction:: Qrack::QInterface::H(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::X(bitLenInt)
@@ -227,4 +228,5 @@ Algorithmic Implementations
 .. doxygenfunction:: Qrack::QInterface::IndexedLDA
 .. doxygenfunction:: Qrack::QInterface::IndexedADC
 .. doxygenfunction:: Qrack::QInterface::IndexedSBC
+.. doxygenfunction:: Qrack::QInterface::Hash
 .. doxygenfunction:: Qrack::QInterface::TimeEvolve
