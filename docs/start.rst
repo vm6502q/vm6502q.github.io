@@ -41,13 +41,16 @@ The ``qrack`` project supports two primary implementations: OpenCL-optimized and
 
 .. code-block:: bash
 
-    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_PURE32=ON] [-DENABLE_RDRAND=ON] [-DENABLE_VC4CL=ON] ..
+    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] ..
 
 Qrack compiles with either double (``ENABLE_COMPLEX8=OFF``) or single (``ENABLE_COMPLEX8=ON``) accuracy complex numbers. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
 
 Vectorization (``ENABLE_COMPLEX_X2=ON``) of doubles uses AVX, while single accuracy vectorization uses SSE 1.0. Turning vectorization off at compile time removes all SIMD vectorization.
 
-Many OpenCL devices that don't support double accuracy floating point operations still support 64-bit integer types. If a device doesn't support 64-bit integer types, ``ENABLE_PURE32=OFF`` will disable all 64-bit types in OpenCL kernels, as well as SIMD. This theoretically supports the OpenCL standard on a device such as a Raspberry Pi 3. However, the VC4CL OpenCL compiler for the Raspberry Pi is still under active development and does not yet fully support trigonometry needed for Qrack. ``ENABLE_VC4CL=ON`` will enable "pure 32-bit" compilation and branch code that relies on OpenCL trigonometry, to support Qrack on the Raspberry Pi 3, but this flag will probably no longer be necessary once trigonometry is supported, at which point ``ENABLE_PURE32=ON`` should suffice instead.
+``QBCAPPOW`` takes an integer "n" between 5 and 31, such that maximum addressable qubits in a QInterface instance is 2^n. n=5 would be 32 qubits per QInterface instance, n=6 is the defaullt at 64 qubits per, n=7 addresses up to 128 qubits per, and so on up to n=31. "Addressable" qubits does not mean that the qubits can necessarily by allocated on the particular system. However, ``QUnit`` Schmidt decomposition optimizations and/or sparse state vector optimizations do render certain very high-qubit-width circuits tractable, when they stay well below the limit of total arbitrary entanglement. (Reducing representational entanglement happens almost entirely "under-the-hood," in ``QUnit``.)
+
+Many OpenCL devices that don't support double accuracy floating point operations still support 64-bit integer types. If a device doesn't support 64-bit integer types, ``QBCAPPOW=5`` (or equivalently ``ENABLE_PURE32=OFF``) will disable all 64-bit types in OpenCL kernels, as well as SIMD. This theoretically supports the OpenCL standard on a device such as a Raspberry Pi 3.
+
 
 Using the API
 ~~~~~~~~~~~~~
