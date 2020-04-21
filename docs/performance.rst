@@ -157,7 +157,7 @@ This might be an extraordinary claim, that Qrack's optimization layer achieves a
        test cases: 1 | 1 passed
        assertions: - none -
 
-One can easily reproduce and vary the width, depth, and iteration count parameters of this test, to satisfy themselves that QUnit has reproduced the measurement result distribution of a Schrödinger method simulation.
+Our definition of cross entropy, here, is 1 minus the Euclidean norm of the residual difference between distributions, normalized between 0 and 1 based on the number of samples collected. It is clear to casual inspection that, with modest sampling, a t-test can establish the difference between uniform random distribution results and the QUnit test case, and that a similar t-test for mean gold standard vs. gold standard, compared to gold standard vs. test case, will return an insignificant p-value, (i.e., we can argue that the cross entropy values are likely the same). One can easily reproduce and vary the width, depth, and iteration count parameters of this test, to satisfy themselves that QUnit has reproduced the measurement result distribution of a Schrödinger method simulation.
 
 Qrack's QUnit also makes a fundamental improvement on an idealization of the Sycamore circuit, which we strongly encourage the reader to analyze and reproduce with the provided public benchmark code.
 
