@@ -78,7 +78,7 @@ This performance document is meant to be a simple, to-the-point, and preliminary
 
 100 timed trials of single and parallel gates were run for each qubit count between 4 and 28 qubits. Three tests were performed: the quantum Fourier transform, ("QFT"), random circuits constructed from a universal gate set, and an idealized approximation of Google's Sycamore chip benchmark, as per [Sycamore]_. The benchmarking code is available at `https://github.com/vm6502q/simulator-benchmarks <https://github.com/vm6502q/simulator-benchmarks>`_.
 
-CPU and GPU benchmarks were run on two respective systems that could represent realistic use cases for each engine type. Among AWS virtual machine instances, we sought to find those systems with the lowest possible cost to run the benchmarks for their respective execution times, at or below for the 28 qubit mark. An AWS g3s.xlarge running Ubuntu Server 18.04LTS was selected for GPU benchmarks. An AWS c5.4xlarge running Ubuntu Server 18.04LTS was selected for CPU benchmarks, including FFTW3 for comparison on the QFT test. Benchmarks were collected from December 27, 2019 through January 24, 2020. Given delays in soliciting peer opinion, while development of Qrack continued, the Qrack benchmarks were updated on April 20th, 2020. These results were combined with single gate, N-width gate and Grover's search benchmarks for Qrack, collected overnight from December 19th, 2018 into the morning of December 20th. (The potential difference since December 2018 in these particular Qrack tests reused from then should be insignificant. We took care to try to report fair tests, within cost limitations, but please let us know if you find anything that appears misrepresentative.)
+CPU and GPU benchmarks were run on two respective systems that could represent realistic use cases for each engine type. Among AWS virtual machine instances, we sought to find those systems with the lowest possible cost to run the benchmarks for their respective execution times, at or below for the 28 qubit mark. An AWS g3s.xlarge running Ubuntu Server 18.04LTS was selected for GPU benchmarks. An AWS c5.4xlarge running Ubuntu Server 18.04LTS was selected for CPU benchmarks, including FFTW3 for comparison on the QFT test. Benchmarks were collected from December 27, 2019 through January 24, 2020. Given delays in soliciting peer opinion, while development of Qrack continued, the Qrack benchmarks were updated on April 15, 2020. These results were combined with single gate, N-width gate and Grover's search benchmarks for Qrack, collected overnight from December 19th, 2018 into the morning of December 20th. (The potential difference since December 2018 in these particular Qrack tests reused from then should be insignificant. We took care to try to report fair tests, within cost limitations, but please let us know if you find anything that appears misrepresentative.)
 
 The average time of each set of 100 was recorded and graphed. Grover's search to invert a black box subroutine, or "oracle," was similarly implemented for trials between 5 and 20 qubits, for QEngineOCL with and without QUnit and QFusion layers. Grover's algorithm was iterated an optimal number of times, vs. qubit count, to maximize probability on a half cycle of the algorithm's period, being :math:`floor\left[\frac{\pi}{4asin^2\left(1/\sqrt{2^N}\right)}\right]` iterations for :math:`N` qubits.
 
@@ -125,41 +125,11 @@ The "quantum" (or "discrete") Fourier transform (QFT/DFT) is a realistic and imp
 
 Recall that QCGPU and Qrack are GPU-implementations run on AWS g3s.xlarge instances, whereas all other candidates are run on AWS c5.4xlarge instances. Under these considerations, by the 28 qubit level, Qrack out-performs all other candidates except FFTW3. (Recall, also, that Qrack uses a representatively "hard" initialization on this test, as described above, whereas permutation basis eigenstate inputs, for example, are much more quickly executed.) Though we are comparing CPU to GPU, CPU-based FFTW3 is clearly the best suited for low numbers of qubits, in general. However, Qrack is the only candidate tested which exhibits even better special case performance on the QFT, as for random permutation basis eigenstate initialization, or initialization via permutation basis eigenstates with random "H" gates applied, before QFT.
 
-On random universal circuits, Qrack's optimized QUnit type appears to achieve effectively linear performance up to at least 26 qubits on the test system, with only a comparatively small deviation from this at 27 and 28 qubits. For more than 20 qubits, Qrack clearly leads over all other candidates. GPU-based QCGPU leads on the test system for 19-20 qubits and below, and CPU-based Cirq leads for 8 qubits and fewer.
+Similarly, on random universal circuits, defined above and in the benchmark repository, Qrack leads over all other candidates considered by the 24 qubit mark and up. GPU-based QCGPU leads on the test system for 23 qubits and below, and CPU-based Cirq leads for 8 qubits and fewer.
 
 .. image:: performance/random_universal.png
 
-This might be an extraordinary claim, that Qrack's optimization layer achieves apparently linear performance in the test domain. We should be clear that this is average performance, whereas worst case iterations in the spread of the benchmark tests still approach exponential resource usage. To validate that QUnit is actually reproducing the equivalent measurement distribution of the other libraries, we have implemented a cross entropy benchmark test between Qrack's QUnit and its Schrödinger method "QEngine" types. This test is available as "test_universal_circuit_digital_cross_entropy" in the vm6502q/qrack repository standard benchmark suit. This benchmark can be run on demand, and its width, depth, and iteration count parameters can be varied as desired, (by changing these constants declared in code). This is an example of an actual output from the benchmark:
-
-.. code-block:: bash
-
-       $ ./benchmarks --proc-opencl-single --layer-qunit-qfusion --enable-normalization test_universal_circuit_digital_cross_entropy
-       Random Seed: 1587426549 (Overridden by hardware generation!)
-       ############ QUnit -> QFusion -> OpenCL ############
-       Device #0, Loaded binary from: /home/iamu/.qrack/qrack_ocl_dev_0.ir
-       Device #1, Loaded binary from: /home/iamu/.qrack/qrack_ocl_dev_1.ir
-       Device #2, Loaded binary from: /home/iamu/.qrack/qrack_ocl_dev_2.ir
-       Default platform: NVIDIA CUDA
-       Default device: GeForce GTX 1070
-       OpenCL device #0: Intel(R) Gen9 HD Graphics NEO
-       OpenCL device #1: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz
-       OpenCL device #2: GeForce GTX 1070
-       Filters: test_universal_circuit_digital_cross_entropy
-       >>> 'test_universal_circuit_digital_cross_entropy':
-       Width: 8 qubits
-       Depth: 3 layers of 1 qubit then multi-qubit gates
-       samples collected: 20000
-       Calculated gold standard distribution.
-       Gold standard vs. uniform random cross entropy (out of 1.0): 0.651946
-       Gold standard vs. gold standard cross entropy (out of 1.0): 0.990022
-       Gold standard vs. test case cross entropy (out of 1.0): 0.994449
-       ===============================================================================
-       test cases: 1 | 1 passed
-       assertions: - none -
-
-One can easily reproduce and vary the width, depth, and iteration count parameters of this test, to satisfy themselves that QUnit has reproduced the measurement result distribution of a Schrödinger method simulation.
-
-Qrack's QUnit also makes a fundamental improvement on an idealization of the Sycamore circuit, which we strongly encourage the reader to analyze and reproduce with the provided public benchmark code.
+Qrack's QUnit makes a fundamental improvement on an idealization of the Sycamore circuit, which we strongly encourage the reader to analyze and reproduce with the provided public benchmark code.
 
 .. image:: performance/sycamore.png
 
@@ -167,7 +137,7 @@ Qrack's QUnit also makes a fundamental improvement on an idealization of the Syc
 Discussion
 **********
 
-Up to a consistent deviation at low qubit counts, speed and RAM usage for Schrödinger method QEngine types is well predicted by theoretical complexity considerations of the gates, up to about a factor of 2 on heap usage for duplication of the state vector, with additional 1/2 the size of state vector allocated by QEngineOCL for an auxiliary normalization buffer.
+Up to a consistent deviation at low qubit counts, speed and RAM usage for Schrödinger method "QEngine" types is well predicted by theoretical complexity considerations of the gates, up to about a factor of 2 on heap usage for duplication of the state vector, with additional 1/2 the size of state vector allocated by QEngineOCL for an auxiliary normalization buffer.
 
 Qrack::QUnit succeeds as a novel and fundamentally improved quantum simulation algorithm, over the naive Schrödinger algorithm. Primarily, QUnit does this by representing its state vector in terms of decomposed subsystems, as well as buffering and commuting H gates and singly-controlled gates. On user and internal probability checks, QUnit will attempt to separate the representations of independent subsystems by Schmidt decomposition. Further, Qrack will avoid applying phase effects that make no difference to the expectation values of any Hermitian operators, (no difference to "physical observables"). For each bit whose representation is separated this way, we recover a factor of close to or exactly 1/2 the subsystem RAM and gate execution time.
 
