@@ -51,7 +51,6 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Compose(std::vector<QInterfacePtr>, bool)
 
 .. doxygenfunction:: Qrack::QInterface::Decompose
-.. doxygenfunction:: Qrack::QInterface::TryDecompose
 
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, bitCapInt)
