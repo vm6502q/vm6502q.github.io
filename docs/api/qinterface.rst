@@ -85,6 +85,10 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
 
+.. doxygenfunction:: Qrack::QInterface::FSim(real1, real1, bitLenInt, bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::FSim(real1, real1, bitLenInt, bitLenInt, bitLenInt)
+
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)

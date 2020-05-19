@@ -129,11 +129,7 @@ Similarly, on random universal circuits, defined above and in the benchmark repo
 
 .. image:: performance/random_universal.png
 
-Qrack's QUnit makes a fundamental improvement on an idealization of the Sycamore circuit, which we strongly encourage the reader to analyze and reproduce with the provided public benchmark code.
-
-.. image:: performance/sycamore.png
-
-To validate that QUnit is actually reproducing the equivalent measurement distribution of the other libraries, we have implemented cross entropy benchmark tests between Qrack's QUnit and its Schrödinger method "QEngine" types, for the random universal circuit test. These tests are available as "test_universal_circuit_digital_cross_entropy" in the vm6502q/qrack repository standard benchmark and unit tests suites.
+Previously, attempted benchmarks for approximations to the the type of circuits argued to establish "quantum supremacy" were presented here. A major bug was identified in those benchmarks. Updated results for these type of circuits will follow shortly, once sufficient data has been collected and scrutinized. (The fix for the bug fundamentally hurts QUnit's performance, and we apologize for the failure of oversight.)
 
 
 Discussion
