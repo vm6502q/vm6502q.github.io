@@ -1,6 +1,6 @@
 :orphan:
 
-.. Copyright (c) 2018
+.. Copyright (c) 2017-2020
 
 QEngineCPU
 ========================

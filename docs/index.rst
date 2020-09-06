@@ -58,6 +58,8 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/oclengine
     api/qenginecpu
     api/qengineocl
+    api/qhybrid
+    api/qpager
     api/qunit
     api/6502
 
