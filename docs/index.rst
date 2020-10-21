@@ -12,7 +12,7 @@ Build Status
 .. |cc65_build_status| image:: https://api.travis-ci.org/vm6502q/cc65.svg?branch=6502q
     :target: https://travis-ci.org/vm6502q/cc65/builds
 
-.. |qrack_build_status| image:: https://api.travis-ci.org/vm6502q/qrack.svg?branch=master
+.. |qrack_build_status| image:: https://api.travis-ci.org/vm6502q/qrack.svg?branch=main
     :target: https://travis-ci.org/vm6502q/qrack/builds
 
 .. |vm6502q_build_status| image:: https://api.travis-ci.org/vm6502q/vm6502q.svg?branch=master
