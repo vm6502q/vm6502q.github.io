@@ -4,7 +4,7 @@ Examples
 Qrack Examples
 ~~~~~~~~~~~~~~
 
-Check the Qrack repository ``examples``directory for compiled single file source examples of Qrack usage. (These build with ``make all`` or ``make [example-name]``, with the name of the source file). This is an overview of their content:
+Check the Qrack repository ``examples`` directory for compiled single file source examples of Qrack usage. (These build with ``make all`` or ``make [example-name]``, with the name of the source file). This is an overview of their content:
 
 grovers - Runs a canonical Grover's search
 
