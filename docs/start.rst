@@ -13,26 +13,13 @@ Optional GPU support is provided by OpenCL development libraries. See :ref:`inst
 Checking Out
 ~~~~~~~~~~~~
 
-Check out each of the major repositories into a project branch:
+Clone the repository with git:
 
 .. code-block:: bash
 
           / $ mkdir qc
           / $ cd qc
         qc/ $ git clone https://github.com/vm6502q/qrack.git
-        qc/ $ git clone https://github.com/vm6502q/vm6502q.git
-        qc/ $ git clone https://github.com/vm6502q/examples.git
-            # Note: the cc65 repository changes live in the 6502q branch
-        qc/ $ git clone https://github.com/vm6502q/cc65.git -b 6502q
-
-            # Add a necessary symlink connecting the vm6502q project with qrack
-        qc/ $ cd vm6502q && ln -s ../qrack
-
-            # vm6502q expects the qrack buildfiles to exist in qrack/build
-        qc/ $ mkdir qrack/build
-        qc/ $ cd qrack/build && cmake ..
-            # OR if no OpenCL support is enabled
-        qc/ $ cd qrack/build && cmake -DUSE_OPENCL=OFF ..
 
 Compiling
 ~~~~~~~~~
@@ -43,6 +30,8 @@ The ``qrack`` project supports two primary implementations: OpenCL-optimized and
 
     qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] ..
 
+Then ``make all`` or (``sudo``) ``make install`` to compile, (with ``-j8`` for 8 parallel build cores, or as appropriate).
+
 Qrack compiles with either double (``ENABLE_COMPLEX8=OFF``) or single (``ENABLE_COMPLEX8=ON``) accuracy complex numbers. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
 
 Vectorization (``ENABLE_COMPLEX_X2=ON``) of doubles uses AVX, while single accuracy vectorization uses SSE 1.0. Turning vectorization off at compile time removes all SIMD vectorization.
@@ -50,6 +39,25 @@ Vectorization (``ENABLE_COMPLEX_X2=ON``) of doubles uses AVX, while single accur
 ``QBCAPPOW`` takes an integer "n" between 5 and 31, such that maximum addressable qubits in a QInterface instance is 2^n. n=5 would be 32 qubits per QInterface instance, n=6 is the defaullt at 64 qubits per, n=7 addresses up to 128 qubits per, and so on up to n=31. "Addressable" qubits does not mean that the qubits can necessarily by allocated on the particular system. However, ``QUnit`` Schmidt decomposition optimizations and/or sparse state vector optimizations do render certain very high-qubit-width circuits tractable, when they stay well below the limit of total arbitrary entanglement. (Reducing representational entanglement happens almost entirely "under-the-hood," in ``QUnit``.)
 
 Many OpenCL devices that don't support double accuracy floating point operations still support 64-bit integer types. If a device doesn't support 64-bit integer types, ``QBCAPPOW=5`` (or equivalently ``ENABLE_PURE32=OFF``) will disable all 64-bit types in OpenCL kernels, as well as SIMD. This theoretically supports the OpenCL standard on a device such as a Raspberry Pi 3.
+
+Running Tests
+~~~~~~~~~~~~~
+
+To run unit tests, run the following in the build directory:
+
+.. code-block:: bash
+
+    ./unittest [-?] [--layer-...] [--proc-...] [specific_test_name]
+
+See the ``-?`` help instructions for option details, and Qrack "layer" and "processor type" choices.
+
+The benchmarks respect the same parameters:
+
+.. code-block:: bash
+
+    ./benchmarks [-?] [--max-qubits=-1] [--layer-...] [--proc-...] [specific_test_name]
+
+``--max-qubits`` will automatically size with ``-1`` as given argument, or otherwise up to the number of qubits specified for this parameter.
 
 
 Using the API
@@ -61,8 +69,8 @@ To create a QEngine or QUnit object, you can use the factory provided in include
 
 .. code-block:: c
 
-    QInterfacePtr qftReg = CreateQuantumInterface(QINTERFACE_QUNIT, QINTERFACE_OPENCL, qubitCount, intPerm, rng);
-    QInterfacePtr qftReg2 = CreateQuantumInterface(QINTERFACE_OPENCL, QINTERFACE_OPENCL, qubitCount, intPerm, rng);
+    QInterfacePtr qftReg = CreateQuantumInterface(QINTERFACE_QUNIT, QINTERFACE_STABILIZER_HYBRID, qubitCount, intPerm, rng);
+    QInterfacePtr qftReg2 = CreateQuantumInterface(QINTERFACE_OPENCL, QINTERFACE_STABILIZER_HYBRID, qubitCount, intPerm, rng);
 
 By default, the ``Qrack::OCLEngine`` singleton attempts to compile kernels and initialize supporting OpenCL objects for all devices on a system. You can strike devices from the list to free their OpenCL resources, usually before initializing OpenCL QEngine objects:
 
@@ -95,22 +103,16 @@ With or without this kind of filtering, the device or devices used by OpenCL-bas
     int deviceID = 0;
     QEngineOCL qEngine = QEngineOCL(qBitCount, initPermutation, random_generator_pointer, deviceID);
 
+Optimal CreateQuantumInterface Factory Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Testing
-~~~~~~~
+Qrack's most specifically optimized "layer" stack is also its best general use case simulator, (at this time):
 
-The qrack project has an extensive set of unittests for the various :cpp:class:`Qrack::QInterface` gates and simulator methods.  This can be executed through running the test suite in the ``qrack`` project:
+.. code-block:: c
 
-.. code-block:: bash
+    QInterfacePtr qftReg = CreateQuantumInterface(QINTERFACE_QUNIT, QINTERFACE_STABILIZER_HYBRID, qubitCount, intPerm, rng[, ...]);
 
-     qrack/build/ $ make test
-
-This may take a few minutes to complete, depending on the strength of the system executing the tests.
-
-.. note::
-
-    The unittests, by default, run against all supported engines.  If only a specific engine type is desired, the ``--disable-opencl`` or ``--disable-software`` command line parameters may be supplied to the ``unittest`` binary.
-
+``QUnit`` is Qrack's "novel optimization layer." ``QStabilizerHybrid`` is a "QUnit shard" that combines Gottesman-Knill stabilizer simulation with Dirac "ket" simulation. The "ket" simulation further "hybridizes" between asynchronous GPU and CPU workloads as is efficient for workloads. When ``QUnit`` can determine that levels of entanglement are low, it will maintain Schmidt decomposed representations of subunit (or sub-register) state, in an attempt to increase efficiency.
 
 Embedding Qrack
 ~~~~~~~~~~~~~~~
