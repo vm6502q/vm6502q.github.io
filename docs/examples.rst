@@ -1,6 +1,32 @@
 Examples
 --------
 
+Qrack Examples
+~~~~~~~~~~~~~~
+
+Check the Qrack repository ``examples``directory for compiled single file source examples of Qrack usage. (These build with ``make all`` or ``make [example-name]``, with the name of the source file). This is an overview of their content:
+
+grovers - Runs a canonical Grover's search
+
+grovers_lookup - Runs a variant of Grover's search that searches a lookup table for a target value
+
+ordered_list_search - Runs Grover's search base case iterations on an ordered list, potentially recovering a theoretical "big-O" complexity reduction of x2 over the canonical binary search.
+
+pearson32 - Hashes a value according to the Pearson 32 bit hashing algorithm, and searches a superposed set of hashes for a target quality, (like "proof-of-work")
+
+qneuron_classification - Runs a simple quantum neuron classification model task
+
+quantum_associative_memory - Creates an example of an associative memory via a simple quantum neuron model
+
+quantum_perceptron - Demonstrates the single neuron "atom" of Qrack's quantum neural net examples
+
+shors_factoring - Carries out a simulation of Shor's factoring algorithm integers
+
+teleport - Demonstrates quantum teleportation
+
+VM6502Q Examples
+~~~~~~~~~~~~~~~~
+
 The `quantum enabled cc65 <https://github.com/vm6502q/cc65>`_ compiler provides a mechanism to both compile the `examples <https://github.com/vm6502q/examples>`_ as well as develop new programs to execute on the *vm6502q* virtual machine.  These changes live on the *6502q* branch.
 
 Start by compiling the *cc65* repository and the *vm6502q* virtual machine:
