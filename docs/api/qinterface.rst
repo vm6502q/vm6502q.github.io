@@ -47,8 +47,8 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::SetQuantumState
 
-.. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr, bool)
-.. doxygenfunction:: Qrack::QInterface::Compose(std::vector<QInterfacePtr>, bool)
+.. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr)
+.. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::Decompose
 
