@@ -133,7 +133,7 @@ To test new capabilities of the "QPager" layer, a slightly different random univ
 
 .. image:: performance/test_ccz_ccx_h_x4.png
 
-With the recently improved QPager layer, it is often possible to achieve a 2 qubit greater maximum width on the same GPU hardware as a result of using all 4 maximum allocation segments typical of NVIDIA GPUs. QPager combines "pages" of maximum allocation segment on an OpenCL device, which are typically of a much smaller size than the overall RAM of the GPU. Proceeding to higher factors of 2 times page count, it becomes possible to use general RAM heap without exceeding maximum allocation according to the OpenCL standard, as is demonstrated in the graph above.
+With the recently improved QPager layer, it is often possible to achieve a 2 qubit greater maximum width on the same GPU hardware as a result of using all 4 maximum allocation segments typical of NVIDIA GPUs. QPager combines "pages" of maximum allocation segment on an OpenCL device, which are typically of a much smaller size than the overall RAM of the GPU. Proceeding to higher factors of 2 times page count, it becomes possible to use general RAM heap without exceeding maximum allocation according to the OpenCL standard, as is demonstrated in the graph above. The threshold to cross from single GPU into multi-GPU is 31 qubits, using 2 GPUs at that level, and the threshold for general heap usage is likely crossed at 33 qubits, using the maximum VRAM of 4 NVIDIA T4 GPUs at 32 qubits.
 
 Discussion
 **********
