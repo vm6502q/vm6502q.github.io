@@ -1,26 +1,6 @@
 VM6502Q and Qrack
 =================
 
-Build Status
-------------
-
- * Qrack: |qrack_build_status|
- * VM6502Q: |vm6502q_build_status|
- * CC65: |cc65_build_status|
- * Examples: |examples_build_status|
-
-.. |cc65_build_status| image:: https://api.travis-ci.org/vm6502q/cc65.svg?branch=6502q
-    :target: https://travis-ci.org/vm6502q/cc65/builds
-
-.. |qrack_build_status| image:: https://api.travis-ci.org/vm6502q/qrack.svg?branch=main
-    :target: https://travis-ci.org/vm6502q/qrack/builds
-
-.. |vm6502q_build_status| image:: https://api.travis-ci.org/vm6502q/vm6502q.svg?branch=master
-    :target: https://travis-ci.org/vm6502q/vm6502q/builds
-
-.. |examples_build_status| image:: https://api.travis-ci.org/vm6502q/examples.svg?branch=master
-    :target: https://travis-ci.org/vm6502q/examples/builds
-
 Introduction
 ------------
 
