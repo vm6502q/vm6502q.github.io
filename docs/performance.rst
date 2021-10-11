@@ -70,8 +70,6 @@ For "Sycamore" circuits, argued by other authors to establish "quantum supremacy
 
 .. image:: performance/sycamore.png
 
-With the recently improved QPager layer, it is often possible to achieve a 2 qubit greater maximum width on the same GPU hardware as a result of using all 4 maximum allocation segments typical of NVIDIA GPUs. QPager combines "pages" of maximum allocation segment on an OpenCL device, which are typically of a much smaller size than the overall RAM of the GPU. Proceeding to higher factors of 2 times page count, it becomes possible to use general RAM heap without exceeding maximum allocation according to the OpenCL standard.
-
 Discussion
 **********
 
