@@ -7,7 +7,7 @@ Abstract
 
 The Qrack quantum simulator is an open-source C++ high performance, general purpose simulation supporting arbitrary numbers of entangled qubits. While there are a variety of other quantum simulators such as [QSharp]_, [QHiPSTER]_, and others listed on [Quantiki]_, Qrack represents a unique offering suitable for applications across the field.
 
-A selection of performance tests are identified for creating comparisons between various quantum simulators. These metrics are implemented and analyzed for Qrack, QCGPU, and Qiskit Aer GPU. These experimentally derived results compare favorably against theoretical boundaries, and out-perform naive implementations for many scenarios.
+A selection of performance tests are identified for creating comparisons between various quantum simulators. These metrics are implemented and analyzed for Qrack, QCGPU, and Qiskit Aer GPU. Qrack's experimentally derived results compare favorably against theoretical boundaries, and out-perform naive implementations for many scenarios.
 
 Introduction
 ************
