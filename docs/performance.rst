@@ -39,7 +39,7 @@ This performance document is meant to be a simple, to-the-point, and preliminary
 
 100 timed trials of single and parallel gates were run for each qubit count between 4 and 28 qubits. Three tests were performed: the quantum Fourier transform, ("QFT"), random circuits constructed from a universal gate set, and an idealized approximation of Google's Sycamore chip benchmark, as per [Sycamore]_. The benchmarking code is available at `https://github.com/vm6502q/simulator-benchmarks <https://github.com/vm6502q/simulator-benchmarks>`_. Default build and runtime options were used for all candidates. **Notably, this means Qrack ran at single floating point accuracy whereas QCGPU and Qiskit ran at double floating point accuracy.**
 
-The same Alienware 17 laptop device was used for all benchmarks, (BIOS version 1.8.0, Intel(R) Core(TM) i9-10980HK CPU @ 2.40GHz, NVIDIA GeForce RTX 2070 Super). Benchmarks were collected from the week of October 3, 2021 through October 10, 2021.
+The same Alienware 17 laptop device was used for all benchmarks, (BIOS version 1.8.0, Intel(R) Core(TM) i9-10980HK CPU @ 2.40GHz, NVIDIA GeForce RTX 2070 Super). Benchmarks were collected from the week of October 3, 2021 through October 16, 2021.
 
 Comparative benchmarks included QCGPU, the Qiskit-Aer GPU simulator, and Qrack's default typically optimal "stack" of a "QUnit" layer on top of "QStabilizerHybrid," on top of "QPager," on top of a new Pauli gate fusion layer, on top of "QHybrid." All of these candidates are GPU-based, though Qrack "hybridizes" with CPU based simulation as appropriate to improve performance.
 
@@ -58,17 +58,25 @@ The "quantum" (or "discrete") Fourier transform (QFT/DFT) is a realistic and imp
 
 .. image:: performance/qft.png
 
-Likely due to a combination of all of its optimization "layers" and techniques, including Schmidt decomposition, "hybridization" of CPU with GPU simulation, and "hybridization" of stabilizer methods with "Schrödinger method," Qrack clearly outperforms purely GPU based simulations at low qubit widths. Recall that Qrack uses a representatively "hard" initialization with uniformly random single qubit unitary gates on this test as described above. We can on the faster PyQrack series, permutation basis eigenstate inputs are much more quickly executed, for example. Qrack has historically been the only candidate tested which exhibits special case performance on the QFT, as for random permutation basis eigenstate initialization.
+Likely due to a combination of all of its optimization "layers" and techniques, including Schmidt decomposition, "hybridization" of CPU with GPU simulation, and "hybridization" of stabilizer methods with "Schrödinger method," Qrack clearly outperforms purely GPU based simulations at low qubit widths. Recall that Qrack uses a representatively "hard" initialization with uniformly random single qubit unitary gates on this test as described above. We can see on the faster PyQrack series, permutation basis eigenstate inputs are much more quickly executed, for example. Qrack has historically been the only candidate tested which exhibits special case performance on the QFT, as for random permutation basis eigenstate initialization.
 
-Similarly, on random universal circuits, defined above and in the benchmark repository, Qrack leads at all qubit widths.
+Similarly, on random universal circuits, defined above and in the benchmark repository, Qrack leads at low qubit widths.
 
 .. image:: performance/random_universal.png
-
-Again, techniques including Schmidt decomposition, CPU/GPU hybridization, stabilizer/"ket" hybridization, and automatic coalescence of parallel X, Y, and Z gives Qrack a universal edge on a realistic universal gate set for general applications.
 
 For "Sycamore" circuits, argued by other authors to establish "quantum supremacy" of native quantum hardware, Qrack maintains is low-width relative performance edge, (with PyQrack optimization options disabled except CPU/GPU hybridization, but still using "paging" with the C++ "QPager" layer).
 
 .. image:: performance/sycamore.png
+
+However, we can furnish examples of circuits where Qrack has a commanding natural edge over naive "Schrödinger method," but also state-of-the-art in optimizing transpilation, (which could be additionally "layered" over Qrack itself.
+
+.. image:: performance/single_qubits.png
+
+The above graph is a test of (non-Clifford) single qubit gates, to depth of 20 on each qubit in simulator width, in parallel across the full width of a simulator instance. Qrack is transparently able to handle this circuit via "Schmidt decomposition," as single separable qubit subsystems, (similar to tensor network "matrix product states,") completing the test in linear time, over qubit widths. Surprisingly, Qiskit transpilation makes no great difference in execution time, in this case, despite successfully reducing depth of 20 qubits to depth of 1. (We could guess, Qiskit might handle this via conventional "gate fusion" techniques, even without transpilation.) However, even reducing circuit depth to 1 for each qubit in the width, Qiskit still suffers an exponential complexity disadvantage, since it still relies on fully connected "Schrödinger method" at base.
+
+.. image:: performance/random_ccx.png
+
+Our last case for consideration is CCNOT (or CCX) gate input qubit combinations selected at random (with elimination) from an implicitly fully-connected topology, across the width of the simulator, repeated for 20 layers of depth, (initialized with a random permutation basis eigenstate, so as to produce a non-trivial change in the state of the qubits). Remember, CCNOT is specifically non-Clifford, but it is also sufficient in itself to serve as a single gate basis for the entirety of "classical" computation, "universally." So, we see that Qrack is capable of simulating a quantum computer that is emulating a "classical" computer, perhaps trivially. Rather, while we have no direct need to simulate the case of a quantum computer emulating classical computation, it is not granted that any other major quantum computer simulator is able to recognize and handle this case, "transparently," with full and automatic interoperability while all parts of the simulator APIS, without quite a bit of "cleverness" upon the part of the end-user, and user code labor. Again, Qiskit transpilation, not depicted, will reduce circuit depth, but rather signficantly increase simulator execution time, in this case.
 
 Discussion
 **********
