@@ -80,7 +80,6 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: virtual void Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt *, const bitLenInt&, bitLenInt, const complex *)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ
 .. doxygenfunction:: Qrack::QInterface::UniformParityRZ
@@ -88,7 +87,6 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
-.. doxygenfunction:: virtual bool Qrack::QInterface::TrySeparate(bitLenInt* qubits, bitLenInt length, real1_f error_tol)
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
 .. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
