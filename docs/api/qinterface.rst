@@ -27,7 +27,6 @@ Constructors
 ------------
 
 .. doxygenfunction:: Qrack::QInterface::QInterface(bitLenInt, qrack_rand_gen_ptr, bool, bool, bool, real1_f)
-
 .. doxygenfunction:: Qrack::QInterface::QInterface()
 
 Copying
@@ -44,86 +43,54 @@ Configuration Methods
 ---------------------------------
 
 .. doxygenfunction:: Qrack::QInterface::GetQubitCount
-
 .. doxygenfunction:: Qrack::QInterface::GetMaxQPower
-
 .. doxygenfunction:: Qrack::QInterface::isBinaryDecisionTree
-
 .. doxygenfunction:: Qrack::QInterface::isClifford()
-
 .. doxygenfunction:: Qrack::QInterface::isClifford(const bitLenInt&)
-
 .. doxygenfunction:: Qrack::QInterface::SetReactiveSeparate
-
 .. doxygenfunction:: Qrack::QInterface::GetReactiveSeparate
 
 State Manipulation Methods
 --------------------------
 
 .. doxygenfunction:: Qrack::QInterface::SetPermutation
-
 .. doxygenfunction:: Qrack::QInterface::SetQuantumState
-
 .. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr)
 .. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::Decompose
-
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, bitCapInt)
-
 .. doxygenfunction:: Qrack::QInterface::Prob
-
 .. doxygenfunction:: Qrack::QInterface::ProbAll
-
 .. doxygenfunction:: Qrack::QInterface::ProbReg
-
 .. doxygenfunction:: Qrack::QInterface::ProbMask
-
 .. doxygenfunction:: Qrack::QInterface::ProbMaskAll
-
 .. doxygenfunction:: Qrack::QInterface::ProbBitsAll
-
 .. doxygenfunction:: Qrack::QInterface::GetProbs
-
 .. doxygenfunction:: Qrack::QInterface::ExpectationBitsAll
-
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::ISwap(bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::ISwap(bitLenInt, bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::SqrtSwap(bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::SqrtSwap(bitLenInt, bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::CSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
-
 .. doxygenfunction:: Qrack::QInterface::AntiCSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
-
 .. doxygenfunction:: Qrack::QInterface::CSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
-
 .. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
-
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt, bitLenInt)
-
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt*, const bitLenInt&, bitLenInt, const complex*)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ
+.. doxygenfunction:: Qrack::QInterface::UniformParityRZ
+.. doxygenfunction:: Qrack::QInterface::CUniformParityRZ
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
-
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt*, bitLenInt, real1_f)
-
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
-
 .. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
-
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
 
 Quantum Gates
@@ -147,12 +114,17 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::M(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ForceM(bitLenInt, bool, bool, bool)
 
+.. doxygenfunction:: Qrack::QInterface::U(bitLenInt, bitLenInt, real1_f, real1_f, real1_f)
+.. doxygenfunction:: Qrack::QInterface::U2(bitLenInt, bitLenInt, real1_f, real1_f)
+
 .. doxygenfunction:: Qrack::QInterface::H(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::X(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Y(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Z(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::S(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::IS(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::SH(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::HIS(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::T(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::IT(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::SqrtX(bitLenInt)
@@ -162,6 +134,11 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::SqrtH(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::SqrtXConjT(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ISqrtXConjT(bitLenInt)
+
+.. doxygenfunction:: Qrack::QInterface::PhaseRootN
+.. doxygenfunction:: Qrack::QInterface::IPhaseRootN
+.. doxygenfunction:: Qrack::QInterface::CPhaseRootN
+.. doxygenfunction:: Qrack::QInterface::CIPhaseRootN
 
 .. doxygenfunction:: Qrack::QInterface::CNOT(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::AntiCNOT(bitLenInt, bitLenInt)
