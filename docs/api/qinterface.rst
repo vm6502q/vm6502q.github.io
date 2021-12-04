@@ -88,7 +88,6 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt *, bitLenInt, real1_f)
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
 .. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
