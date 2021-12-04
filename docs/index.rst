@@ -42,6 +42,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qhybrid
     api/qstabilizerhybrid
     api/qunit
+    api/qunitmulti
     api/qbinarydecisiontree
     api/6502
 
@@ -65,5 +66,6 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     QHybrid </en/latest/_static/doxygen/classQrack_1_1QHybrid.html#http://>
     QStabilizerHybrid </en/latest/_static/doxygen/classQrack_1_1QStabilizerHybrid.html#http://>
     QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
+    QUnitMulti </en/latest/_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
     QBinaryDecisionTree </en/latest/_static/doxygen/classQrack_1_1QBinaryDecisionTree.html#http://>
 
