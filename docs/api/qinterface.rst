@@ -26,7 +26,9 @@ These enums can be passed to an allocator to create a ``QInterface`` of that spe
 Constructors
 ------------
 
-.. doxygenfunction:: Qrack::QInterface::QInterface(bitLenInt, qrack_rand_gen_ptr, bool, bool, bool, real1)
+.. doxygenfunction:: Qrack::QInterface::QInterface(bitLenInt, qrack_rand_gen_ptr, bool, bool, bool, real1_f)
+
+.. doxygenfunction:: Qrack::QInterface::QInterface()
 
 Members
 -------
@@ -85,9 +87,9 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
 
-.. doxygenfunction:: Qrack::QInterface::FSim(real1, real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::FSim(real1, real1, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 
@@ -138,30 +140,30 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::AntiCCNOT(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CY(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CZ(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RT(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RT(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RTDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRT(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRT(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRTDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RX(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RX(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RXDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRX(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRX(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRXDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RY(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RY(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RYDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRY(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRY(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRYDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RZ(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RZ(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RZDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRZ(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRZ(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZDyad(int, int, bitLenInt, bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::Exp(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Exp(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ExpX(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpX(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpXDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ExpY(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpY(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpYDyad(int, int, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ExpZ(real1, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpZ(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Exp(bitLenInt *, bitLenInt, bitLenInt, complex *, bool)
 
@@ -200,27 +202,27 @@ Register-wide Gates
 .. doxygenfunction:: Qrack::QInterface::AntiCCNOT(bitLenInt, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CY(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CZ(bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RT(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RT(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RTDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RX(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RX(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RXDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRX(real1, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRX(real1_f, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRXDyad(int, int, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RY(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RY(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RYDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRY(real1, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRY(real1_f, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRYDyad(int, int, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::RZ(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::RZ(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RZDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRZ(real1, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CRZ(real1_f, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZDyad(int, int, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Exp(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Exp(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ExpX(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpX(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpXDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ExpY(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpY(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpYDyad(int, int, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ExpZ(real1, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::ExpZ(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt, bitLenInt)
 
 Algorithmic Implementations
@@ -228,6 +230,8 @@ Algorithmic Implementations
 
 .. doxygenfunction:: Qrack::QInterface::QFT
 .. doxygenfunction:: Qrack::QInterface::IQFT
+.. doxygenfunction:: Qrack::QInterface::QFTR
+.. doxygenfunction:: Qrack::QInterface::IQFTR
 .. doxygenfunction:: Qrack::QInterface::IndexedLDA
 .. doxygenfunction:: Qrack::QInterface::IndexedADC
 .. doxygenfunction:: Qrack::QInterface::IndexedSBC
