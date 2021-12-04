@@ -11,4 +11,6 @@ Qrack::QUnit maintains explicit separation of representation between separable s
 
 Qrack::QInterface::TrySeparate() is primarily intended for use with Qrack::QUnit.
 
+.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt *, bitLenInt, real1_f)
