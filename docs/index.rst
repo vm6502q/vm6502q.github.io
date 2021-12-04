@@ -59,8 +59,11 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     :maxdepth: 2
 
     QInterface </en/latest/_static/doxygen/classQrack_1_1QInterface.html#http://>
+    QEngine </en/latest/_static/doxygen/classQrack_1_1QEngine.html#http://>
     QEngineCPU </en/latest/_static/doxygen/classQrack_1_1QEngineCPU.html#http://>
     QEngineOCL </en/latest/_static/doxygen/classQrack_1_1QEngineOCL.html#http://>
+    QHybrid </en/latest/_static/doxygen/classQrack_1_1QHybrid.html#http://>
+    QStabilizerHybrid </en/latest/_static/doxygen/classQrack_1_1QStabilizerHybrid.html#http://>
     QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
-    Complex16Simd </en/latest/_static/doxygen/structQrack_1_1Complex16Simd.html#http://>
+    QBinaryDecisionTree </en/latest/_static/doxygen/classQrack_1_1QBinaryDecisionTree.html#http://>
 
