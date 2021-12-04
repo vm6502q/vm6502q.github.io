@@ -80,7 +80,7 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const bitLenInt*, const bitLenInt&, const bitLenInt&, const bitLenInt&)
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt*, const bitLenInt&, bitLenInt, const complex*)
+.. doxygenfunction:: virtual void Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt *, const bitLenInt&, bitLenInt, const complex *)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ
 .. doxygenfunction:: Qrack::QInterface::UniformParityRZ
@@ -88,6 +88,7 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
+.. doxygenfunction:: virtual bool Qrack::QInterface::TrySeparate(bitLenInt* qubits, bitLenInt length, real1_f error_tol)
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
 .. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
@@ -134,10 +135,10 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::SqrtXConjT(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ISqrtXConjT(bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::PhaseRootN
-.. doxygenfunction:: Qrack::QInterface::IPhaseRootN
-.. doxygenfunction:: Qrack::QInterface::CPhaseRootN
-.. doxygenfunction:: Qrack::QInterface::CIPhaseRootN
+.. doxygenfunction:: Qrack::QInterface::PhaseRootN(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::IPhaseRootN(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CPhaseRootN(bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::CIPhaseRootN(bitLenInt, bitLenInt, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::CNOT(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::AntiCNOT(bitLenInt, bitLenInt)
