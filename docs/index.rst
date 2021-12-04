@@ -39,7 +39,9 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qenginecpu
     api/qengineocl
     api/qhybrid
+    api/qstabilizerhybrid
     api/qunit
+    api/qbinarydecisiontree
     api/6502
 
 .. The #http:// is a hack to get around Sphinx's re parser for links,
@@ -56,7 +58,6 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     :maxdepth: 2
 
     QInterface </en/latest/_static/doxygen/classQrack_1_1QInterface.html#http://>
-    QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
     QEngineCPU </en/latest/_static/doxygen/classQrack_1_1QEngineCPU.html#http://>
     QEngineOCL </en/latest/_static/doxygen/classQrack_1_1QEngineOCL.html#http://>
     QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>

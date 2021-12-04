@@ -1,6 +1,6 @@
 :orphan:
 
-.. Copyright (c) 2017-2020
+.. Copyright (c) 2017-2021
 
 QInterface
 ========================
@@ -15,13 +15,13 @@ This provides a basic interface with a wide-ranging set of functionality
 Creating a QInterface
 -----------------------
 
-There are five primary implementations of a ``QInterface``:
+These are the primary implementations of a ``QInterface``:
 
 .. doxygenenum:: QInterfaceEngine
 
 These enums can be passed to an allocator to create a ``QInterface`` of that specified implementation type:
 
-.. doxygenfunction:: Qrack::CreateQuantumInterface(QInterfaceEngine, QInterfaceEngine, QInterfaceEngine, Ts...)
+.. doxygenfunction:: Qrack::CreateQuantumInterface(std::vector<QInterfaceEngine>, Ts...)
 
 Constructors
 ------------
