@@ -30,6 +30,11 @@ Constructors
 
 .. doxygenfunction:: Qrack::QInterface::QInterface()
 
+Copying
+-------
+
+.. doxygenfunction:: Qrack::QInterface::Clone
+
 Members
 -------
 
@@ -41,6 +46,16 @@ Configuration Methods
 .. doxygenfunction:: Qrack::QInterface::GetQubitCount
 
 .. doxygenfunction:: Qrack::QInterface::GetMaxQPower
+
+.. doxygenfunction:: Qrack::QInterface::isBinaryDecisionTree
+
+.. doxygenfunction:: Qrack::QInterface::isClifford()
+
+.. doxygenfunction:: Qrack::QInterface::isClifford(const bitLenInt&)
+
+.. doxygenfunction:: Qrack::QInterface::SetReactiveSeparate
+
+.. doxygenfunction:: Qrack::QInterface::GetReactiveSeparate
 
 State Manipulation Methods
 --------------------------
@@ -65,7 +80,13 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::ProbMask
 
+.. doxygenfunction:: Qrack::QInterface::ProbMaskAll
+
+.. doxygenfunction:: Qrack::QInterface::ProbBitsAll
+
 .. doxygenfunction:: Qrack::QInterface::GetProbs
+
+.. doxygenfunction:: Qrack::QInterface::ExpectationBitsAll
 
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt)
 
@@ -93,9 +114,17 @@ State Manipulation Methods
 
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 
+.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
+
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int);
+.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt*, bitLenInt, real1_f)
+
+.. doxygenfunction:: Qrack::QInterface::TryDecompose
+
+.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
+
+.. doxygenfunction:: Qrack::QInterface::ApproxCompare
 
 Quantum Gates
 -------------
