@@ -28,11 +28,13 @@ The ``qrack`` project supports two primary implementations: OpenCL-optimized and
 
 .. code-block:: bash
 
-    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] ..
+    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] [-DFPPOW=4-6] ..
 
 Then ``make all`` or (``sudo``) ``make install`` to compile, (with ``-j8`` for 8 parallel build cores, or as appropriate).
 
-Qrack compiles with either double (``ENABLE_COMPLEX8=OFF``) or single (``ENABLE_COMPLEX8=ON``) accuracy complex numbers. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
+Qrack compiles with either double (``FPPOW=6``) or single (``FPPOW=5``) accuracy complex numbers, for most OpenCL-enabled builds. 16 bit half accurracy (``FPPOW=4``) is available for CPU-only builds and for a limited selection of NVIDIA GPUs. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM as double accuracy, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
+
+.. note:: If your GPU or accelerator supports 16-bit floating point, but 16-bit OpenCL kernels do not compile or run, then a Qrack build for your device likely needs simply a different ``#pragma`` line, which is a tiny change to the OpenCL code. We suggest you open an issue on the Qrack GitHub repository to direct the developers' attention to the likely very small change that will support your device, and permanently fix the issue for other users. However, it's difficult to anticipate these cases, particularly without your help to actually test the modified build for a device to which the developers don't have access.
 
 Vectorization (``ENABLE_COMPLEX_X2=ON``) of doubles uses AVX, while single accuracy vectorization uses SSE 1.0. Turning vectorization off at compile time removes all SIMD vectorization.
 
@@ -65,7 +67,7 @@ Using the API
 
 Qrack API methods operate on "QEngine" and "QUnit" objects. ("QUnit" objects are a specific optional optimization on "QEngine" objects, with the same API interface.) These objects are organized as 1-dimensional arrays of coherent qubits which can be arbitrarily entangled within the QEngine or QUnit. These object have methods that act like quantum gates, for a specified qubit index in the 1-dimensional array, as well as any analog parameters needed for the gate (like for variable angle rotation gates). Many fundamental gate methods have variants that are optimized to act on a contiguous length of qubits in the array at once. For OpenCL ``QEngineOCL`` objects, the preferred OpenCL device can be specified in the constructor. For multiprocessor ``QEngineOCLMulti`` engines, you can specify distribution of equal-sized sub-engines between available OpenCL devices. See the API reference for more details.
 
-To create a QEngine or QUnit object, you can use the factory provided in include/qfactory.hpp. The easiest way to choose an optimal "layer stack" is to use `QINTERFACE_OPTIMAL` for a single OpenCL device simulator, and use `QINTERFACE_OPTIMAL_MULTI` for a multi-device simulator:
+To create a QEngine or QUnit object, you can use the factory provided in include/qfactory.hpp. The easiest way to choose an optimal "layer stack" is to use ``QINTERFACE_OPTIMAL`` for a single OpenCL device simulator, and use ``QINTERFACE_OPTIMAL_MULTI`` for a multi-device simulator:
 
 .. code-block:: c
 
