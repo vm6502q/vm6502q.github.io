@@ -28,7 +28,7 @@ The ``qrack`` project supports two primary implementations: OpenCL-optimized and
 
 .. code-block:: bash
 
-    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX8=ON] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] [-DFPPOW=4-6] ..
+    qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] [-DFPPOW=4-6] ..
 
 Then ``make all`` or (``sudo``) ``make install`` to compile, (with ``-j8`` for 8 parallel build cores, or as appropriate).
 
@@ -40,7 +40,7 @@ Vectorization (``ENABLE_COMPLEX_X2=ON``) of doubles uses AVX, while single accur
 
 ``QBCAPPOW`` takes an integer "n" between 5 and 31, such that maximum addressable qubits in a QInterface instance is 2^n. n=5 would be 32 qubits per QInterface instance, n=6 is the defaullt at 64 qubits per, n=7 addresses up to 128 qubits per, and so on up to n=31. "Addressable" qubits does not mean that the qubits can necessarily by allocated on the particular system. However, ``QUnit`` Schmidt decomposition optimizations and/or sparse state vector optimizations do render certain very high-qubit-width circuits tractable, when they stay well below the limit of total arbitrary entanglement. (Reducing representational entanglement happens almost entirely "under-the-hood," in ``QUnit``.)
 
-Many OpenCL devices that don't support double accuracy floating point operations still support 64-bit integer types. If a device doesn't support 64-bit integer types, ``QBCAPPOW=5`` (or equivalently ``ENABLE_PURE32=OFF``) will disable all 64-bit types in OpenCL kernels, as well as SIMD. This theoretically supports the OpenCL standard on a device such as a Raspberry Pi 3.
+Many OpenCL devices that don't support double accuracy floating point operations still support 64-bit integer types. If a device doesn't support 64-bit integer types, ``UINTPOW=5`` with ``ENABLE_COMPLEX_X2=OFF`` will disable all 64-bit types in OpenCL kernels, as well as SIMD. This theoretically supports the OpenCL standard on a device such as a Raspberry Pi 3.
 
 Running Tests
 ~~~~~~~~~~~~~
