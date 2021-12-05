@@ -49,6 +49,9 @@ Configuration Methods
 .. doxygenfunction:: Qrack::QInterface::isClifford(const bitLenInt&)
 .. doxygenfunction:: Qrack::QInterface::SetReactiveSeparate
 .. doxygenfunction:: Qrack::QInterface::GetReactiveSeparate
+.. doxygenfunction:: Qrack::QInterface::SetDevice
+.. doxygenfunction:: Qrack::QInterface::GetDevice
+.. doxygenfunction:: Qrack::QInterface::GetMaxSize
 
 State Manipulation Methods
 --------------------------
@@ -90,11 +93,14 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
 .. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
+.. doxygenfunction:: Qrack::QInterface::TimeEvolve
 
 Quantum Gates
 -------------
 
 .. note:: Most gates offer both a single-bit version taking just the index to the qubit, as well as a register-spanning variant for convienence and performance that performs the gate across a sequence of bits.
+
+.. note:: Qrack::QInterface also offers arithmetic logic unit (ALU) gates. See the Doxygen.
 
 Single Gates
 ~~~~~~~~~~~~
@@ -229,6 +235,46 @@ Register-wide Gates
 .. doxygenfunction:: Qrack::QInterface::ExpZ(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ExpZDyad(int, int, bitLenInt, bitLenInt)
 
+Arithmetic
+----------
+
+.. doxygenfunction:: Qrack::QInterface::INC
+.. doxygenfunction:: Qrack::QInterface::DEC
+.. doxygenfunction:: Qrack::QInterface::CINC
+.. doxygenfunction:: Qrack::QInterface::CDEC
+.. doxygenfunction:: Qrack::QInterface::INCC
+.. doxygenfunction:: Qrack::QInterface::INCS
+.. doxygenfunction:: Qrack::QInterface::DECS
+.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::INCBCD
+.. doxygenfunction:: Qrack::QInterface::DECBCD
+.. doxygenfunction:: Qrack::QInterface::MUL
+.. doxygenfunction:: Qrack::QInterface::DIV
+.. doxygenfunction:: Qrack::QInterface::CMUL
+.. doxygenfunction:: Qrack::QInterface::CDIV
+.. doxygenfunction:: Qrack::QInterface::MULModNOut
+.. doxygenfunction:: Qrack::QInterface::IMULModNOut
+.. doxygenfunction:: Qrack::QInterface::CMULModNOut
+.. doxygenfunction:: Qrack::QInterface::CIMULModNOut
+.. doxygenfunction:: Qrack::QInterface::POWModNOut
+.. doxygenfunction:: Qrack::QInterface::CPOWModNOut
+
+.. doxygenfunction:: Qrack::QInterface::FullAdd
+.. doxygenfunction:: Qrack::QInterface::IFullAdd
+.. doxygenfunction:: Qrack::QInterface::CFullAdd
+.. doxygenfunction:: Qrack::QInterface::CIFullAdd
+
+.. doxygenfunction:: Qrack::QInterface::ADC
+.. doxygenfunction:: Qrack::QInterface::IADC
+.. doxygenfunction:: Qrack::QInterface::CADC
+.. doxygenfunction:: Qrack::QInterface::CIADC
+
+.. doxygenfunction:: Qrack::QInterface::IndexedLDA
+.. doxygenfunction:: Qrack::QInterface::IndexedADC
+.. doxygenfunction:: Qrack::QInterface::IndexedSBC
+.. doxygenfunction:: Qrack::QInterface::Hash
+
 Algorithmic Implementations
 ---------------------------
 
@@ -236,8 +282,3 @@ Algorithmic Implementations
 .. doxygenfunction:: Qrack::QInterface::IQFT
 .. doxygenfunction:: Qrack::QInterface::QFTR
 .. doxygenfunction:: Qrack::QInterface::IQFTR
-.. doxygenfunction:: Qrack::QInterface::IndexedLDA
-.. doxygenfunction:: Qrack::QInterface::IndexedADC
-.. doxygenfunction:: Qrack::QInterface::IndexedSBC
-.. doxygenfunction:: Qrack::QInterface::Hash
-.. doxygenfunction:: Qrack::QInterface::TimeEvolve
