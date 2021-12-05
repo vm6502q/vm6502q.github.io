@@ -112,14 +112,16 @@ Qrack's most specifically optimized "layer" stack is also its best general use c
 
 .. code-block:: c
 
-    QInterfacePtr qftReg = CreateQuantumInterface(QINTERFACE_QUNIT, QINTERFACE_STABILIZER_HYBRID, qubitCount, intPerm, rng[, ...]);
+    QInterfacePtr qftReg = CreateQuantumInterface(QINTERFACE_QUNIT, QINTERFACE_STABILIZER_HYBRID, QINTERFACE_QPAGER, QINTERFACE_MASK_FUSION, QINTERFACE_HYBRID, qubitCount, intPerm, rng[, ...]);
 
 ``QUnit`` is Qrack's "novel optimization layer." ``QStabilizerHybrid`` is a "QUnit shard" that combines Gottesman-Knill stabilizer simulation with Dirac "ket" simulation. The "ket" simulation further "hybridizes" between asynchronous GPU and CPU workloads as is efficient for workloads. When ``QUnit`` can determine that levels of entanglement are low, it will maintain Schmidt decomposed representations of subunit (or sub-register) state, in an attempt to increase efficiency.
 
 Embedding Qrack
 ~~~~~~~~~~~~~~~
 
-The ``qrack`` project produces a ``libqrack.a`` archive, suitable for being linked into a larger binary.  See the :cpp:class:`Qrack::QInterface` documentation for API references, as well as the examples present in `the unit tests <https://github.com/vm6502q/qrack/blob/master/tests.cpp>`_.
+For static linkage, the build process produces a ``libqrack.a`` archive, suitable for being linked into a larger binary.  See the :cpp:class:`Qrack::QInterface` documentation for API references, as well as the examples present in `the unit tests <https://github.com/vm6502q/qrack/blob/main/tests.cpp>`_.
+
+For dynamic linkage, use ``libqrack_pinvoke.so``. (This is the shared object library upon which such wrapper projects as `PyQrack <https://github.com/vm6502q/pyqrack>`_ are based and linked from.)
 
 Performance
 ~~~~~~~~~~~
