@@ -247,8 +247,6 @@ Arithmetic
 .. doxygenfunction:: Qrack::QInterface::DECS
 .. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::INCBCD
-.. doxygenfunction:: Qrack::QInterface::DECBCD
 .. doxygenfunction:: Qrack::QInterface::MUL
 .. doxygenfunction:: Qrack::QInterface::DIV
 .. doxygenfunction:: Qrack::QInterface::CMUL
