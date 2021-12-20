@@ -46,7 +46,7 @@ Configuration Methods
 .. doxygenfunction:: Qrack::QInterface::GetMaxQPower
 .. doxygenfunction:: Qrack::QInterface::isBinaryDecisionTree
 .. doxygenfunction:: Qrack::QInterface::isClifford()
-.. doxygenfunction:: Qrack::QInterface::isClifford(const bitLenInt&)
+.. doxygenfunction:: Qrack::QInterface::isClifford(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::SetReactiveSeparate
 .. doxygenfunction:: Qrack::QInterface::GetReactiveSeparate
 .. doxygenfunction:: Qrack::QInterface::SetDevice
@@ -91,7 +91,8 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
-.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt*, const bitLenInt, const unsigned int)
+.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt *, bitLenInt, unsigned)
+.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const bitCapInt *, bitLenInt, unsigned, unsigned *)
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
 .. doxygenfunction:: Qrack::QInterface::TimeEvolve
 
@@ -105,8 +106,15 @@ Quantum Gates
 Single Gates
 ~~~~~~~~~~~~
 
-.. doxygenfunction:: Qrack::QInterface::ApplySingleBit(const complex*, bool, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ApplyControlledSingleBit(const bitLenInt*, const bitLenInt&, const bitLenInt&, const complex*)
+.. doxygenfunction:: Qrack::QInterface::Mtrx(const complex*, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MCMtrx(const bitLenInt*, bitLenInt, const complex*, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MACMtrx(const bitLenInt*, bitLenInt, const complex*, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Phase(const complex, const complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MCPhase(const bitLenInt*, bitLenInt, complex, complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MACPhase(const bitLenInt*, bitLenInt, complex, complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Invert(const complex, const complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MCInvert(const bitLenInt*, bitLenInt, complex, complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MACInvert(const bitLenInt*, bitLenInt, complex, complex, bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::AND(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CLAND(bitLenInt, bool, bitLenInt)
@@ -151,7 +159,6 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::CY(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CZ(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RT(real1_f, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::CRT(real1_f, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RX(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RY(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::RZ(real1_f, bitLenInt)
@@ -164,40 +171,7 @@ Single Gates
 Arithmetic
 ----------
 
-.. doxygenfunction:: Qrack::QInterface::INC
-.. doxygenfunction:: Qrack::QInterface::DEC
-.. doxygenfunction:: Qrack::QInterface::CINC
-.. doxygenfunction:: Qrack::QInterface::CDEC
-.. doxygenfunction:: Qrack::QInterface::INCC
-.. doxygenfunction:: Qrack::QInterface::INCS
-.. doxygenfunction:: Qrack::QInterface::DECS
-.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::MUL
-.. doxygenfunction:: Qrack::QInterface::DIV
-.. doxygenfunction:: Qrack::QInterface::CMUL
-.. doxygenfunction:: Qrack::QInterface::CDIV
-.. doxygenfunction:: Qrack::QInterface::MULModNOut
-.. doxygenfunction:: Qrack::QInterface::IMULModNOut
-.. doxygenfunction:: Qrack::QInterface::CMULModNOut
-.. doxygenfunction:: Qrack::QInterface::CIMULModNOut
-.. doxygenfunction:: Qrack::QInterface::POWModNOut
-.. doxygenfunction:: Qrack::QInterface::CPOWModNOut
-
-.. doxygenfunction:: Qrack::QInterface::FullAdd
-.. doxygenfunction:: Qrack::QInterface::IFullAdd
-.. doxygenfunction:: Qrack::QInterface::CFullAdd
-.. doxygenfunction:: Qrack::QInterface::CIFullAdd
-
-.. doxygenfunction:: Qrack::QInterface::ADC
-.. doxygenfunction:: Qrack::QInterface::IADC
-.. doxygenfunction:: Qrack::QInterface::CADC
-.. doxygenfunction:: Qrack::QInterface::CIADC
-
-.. doxygenfunction:: Qrack::QInterface::IndexedLDA
-.. doxygenfunction:: Qrack::QInterface::IndexedADC
-.. doxygenfunction:: Qrack::QInterface::IndexedSBC
-.. doxygenfunction:: Qrack::QInterface::Hash
+Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_ALU``. Build the Doxygen locally with that option for documentation.
 
 Algorithmic Implementations
 ---------------------------
