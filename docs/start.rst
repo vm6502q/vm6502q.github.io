@@ -24,10 +24,10 @@ Clone the repository with git:
 Compiling
 ~~~~~~~~~
 
-The ``qrack`` project supports two primary implementations: OpenCL-optimized and software-only.  See :doc:`opencl` for details on installing OpenCL on some platforms, or your appropriate OS documentation. If you do not have OpenCL or do not wish to use it, supply the ``ENABLE_OPENCL=OFF`` environment to ``cmake`` when building qrack the first time.
+The ``qrack`` project supports two primary implementations: OpenCL-optimized and software-only.  See :doc:`opencl` for details on installing OpenCL on some platforms, or your appropriate OS documentation. If you do not have OpenCL or do not wish to use it, supply the ``-DENABLE_OPENCL=OFF`` build option to ``cmake`` when building qrack the first time.
 
 .. code-block:: bash
-
+    qc/ $ mkdir qrack/build
     qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] [-DFPPOW=4-6] ..
 
 Then ``make all`` or (``sudo``) ``make install`` to compile, (with ``-j8`` for 8 parallel build cores, or as appropriate).
