@@ -171,7 +171,7 @@ Single Gates
 Arithmetic
 ----------
 
-Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_ALU``. Build the Doxygen locally with that option for documentation.
+Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_ALU=ON``. Build the Doxygen locally with that option for documentation.
 
 Algorithmic Implementations
 ---------------------------
