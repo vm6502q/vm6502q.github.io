@@ -164,7 +164,7 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::RZ(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZ(real1_f, bitLenInt, bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt *, const bitLenInt&, bitLenInt, const complex *)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const bitLenInt *, bitLenInt, bitLenInt, const complex *)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY(const bitLenInt*, const bitLenInt&, bitLenInt, const real1*)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ(const bitLenInt*, const bitLenInt&, bitLenInt, const real1*)
 
