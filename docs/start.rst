@@ -30,7 +30,7 @@ The ``qrack`` project supports two primary implementations: OpenCL-optimized and
     qc/ $ mkdir qrack/build
     qc/ $ cd qrack/build && cmake [-DENABLE_OPENCL=OFF] [-DENABLE_COMPLEX_X2=OFF] [-DENABLE_RDRAND=ON] [-DQBCAPPOW=5-31] [-DFPPOW=4-6] ..
 
-Then ``make all`` or (``sudo``) ``make install`` to compile, (with ``-j8`` for 8 parallel build cores, or as appropriate).
+Then ``make all`` to compile (with ``-j8`` for 8 parallel build cores, or as appropriate) or (``sudo``) ``make install`` to compile and install into a shared location in your system. ``make install`` would be needed if you're going to use this version of the qrack library with `pyqrack <https://github.com/vm6502q/pyqrack>`_.
 
 Qrack compiles with either double (``FPPOW=6``) or single (``FPPOW=5``) accuracy complex numbers, for most OpenCL-enabled builds. 16 bit half accurracy (``FPPOW=4``) is available for CPU-only builds and for a limited selection of NVIDIA GPUs. Single float accuracy is used by default. Single float accuracy uses almost exactly half as much RAM as double accuracy, allowing one additional qubit. Single accuracy may also be faster or the only compatible option for certain OpenCL devices.
 
