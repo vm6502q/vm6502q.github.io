@@ -171,7 +171,42 @@ Single Gates
 Arithmetic
 ----------
 
-Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_ALU=ON``. Build the Doxygen locally with that option for documentation.
+Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_ALU=ON`.
+
+.. doxygenfunction:: Qrack::QInterface::INC
+.. doxygenfunction:: Qrack::QInterface::DEC
+.. doxygenfunction:: Qrack::QInterface::CINC
+.. doxygenfunction:: Qrack::QInterface::CDEC
+.. doxygenfunction:: Qrack::QInterface::INCC
+.. doxygenfunction:: Qrack::QInterface::INCS
+.. doxygenfunction:: Qrack::QInterface::DECS
+.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MUL
+.. doxygenfunction:: Qrack::QInterface::DIV
+.. doxygenfunction:: Qrack::QInterface::CMUL
+.. doxygenfunction:: Qrack::QInterface::CDIV
+.. doxygenfunction:: Qrack::QInterface::MULModNOut
+.. doxygenfunction:: Qrack::QInterface::IMULModNOut
+.. doxygenfunction:: Qrack::QInterface::CMULModNOut
+.. doxygenfunction:: Qrack::QInterface::CIMULModNOut
+.. doxygenfunction:: Qrack::QInterface::POWModNOut
+.. doxygenfunction:: Qrack::QInterface::CPOWModNOut
+
+.. doxygenfunction:: Qrack::QInterface::FullAdd
+.. doxygenfunction:: Qrack::QInterface::IFullAdd
+.. doxygenfunction:: Qrack::QInterface::CFullAdd
+.. doxygenfunction:: Qrack::QInterface::CIFullAdd
+
+.. doxygenfunction:: Qrack::QInterface::ADC
+.. doxygenfunction:: Qrack::QInterface::IADC
+.. doxygenfunction:: Qrack::QInterface::CADC
+.. doxygenfunction:: Qrack::QInterface::CIADC
+
+.. doxygenfunction:: Qrack::QInterface::IndexedLDA
+.. doxygenfunction:: Qrack::QInterface::IndexedADC
+.. doxygenfunction:: Qrack::QInterface::IndexedSBC
+.. doxygenfunction:: Qrack::QInterface::Hash
 
 Algorithmic Implementations
 ---------------------------
