@@ -9,11 +9,13 @@ We encourage all users to build the Qrack framework from source as primary insta
 Many users can benefit from an installation method designed to replace a Qiskit simulator with a Qrack simulator one-for-one, without little or no Qiskit user code modification. We provide such an installation method, typically in 3 simple steps. We assume that you've already installed a Qiskit environment and have a script that you'd like to try running with Qrack instead of Aer, with little or no modification.
 
 1. Install the qiskit-qrack-provider Python package, which will also install PyQrack as a dependency:
+
 .. code-block:: bash
 
         pip install qiskit-qrack-provider`
 
 2. In the Qiskit script you'd like to run, replace all instances of "Aer" and "AerProvider" with "Qrack" and "QrackProvider" from a subset of classes among the following import statements:
+
 .. code-block:: python
 
         from qiskit.providers.qrack import Qrack, QrackProvider
