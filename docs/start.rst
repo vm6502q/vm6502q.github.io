@@ -1,6 +1,30 @@
 Getting Started
 ---------------
 
+Accelerate Qiskit workloads in 3 steps! (PyQrack)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We encourage all users to build the Qrack framework from source as primary installation method, for maximum configurability, system compatibility, and application suitability. However, you don't have to!
+
+Many users can benefit from an installation method designed to replace a Qiskit simulator with a Qrack simulator one-for-one, without little or no Qiskit user code modification. We provide such an installation method, typically in 3 simple steps. We assume that you've already installed a Qiskit environment and have a script that you'd like to try running with Qrack instead of Aer, with little or no modification.
+
+1. Install the qiskit-qrack-provider Python package, which will also install PyQrack as a dependency:
+.. code-block:: bash
+
+        pip install qiskit-qrack-provider`
+
+2. In the Qiskit script you'd like to run, replace all instances of "Aer" and "AerProvider" with "Qrack" and "QrackProvider" from a subset of classes among the following import statements:
+.. code-block:: python
+
+        from qiskit.providers.qrack import Qrack, QrackProvider
+        from qiskit.providers.qrack.backends import QasmSimulator
+
+3. If you must, adapt your script to use the "qasm_simulator" backend API. (You might not need to modify anything at all, for this step!) Qrack currently only provides a "qasm_simulator" backend API, because Qrack's novel simulation method optimizations don't necessarily internally track a traditional state vector representation at all, except when expedient. Hence, Qrack benefits from an API formulated in terms of gate primitives and measurement distributions that resembling a native quantum hardware interface.
+
+That's it! Enjoy GPU-acceleration and Qrack's "transparent" novel optimization layers! (For example, try writing Clifford group stabilizer programs to run with the default simulator backend configuration, and watch Qrack automatically detect that the program should execute as stabilizer simulation!)
+
+The rest of the document explains the "advanced" (but honestly also not difficult) C++ build requirements and process.
+
 Prerequisites
 ~~~~~~~~~~~~~
 
