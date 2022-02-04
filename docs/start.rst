@@ -19,7 +19,7 @@ Many users can benefit from an installation method designed to replace a Qiskit 
         from qiskit.providers.qrack import Qrack, QrackProvider
         from qiskit.providers.qrack.backends import QasmSimulator
 
-3. If you must, adapt your script to use the "qasm_simulator" backend API. (You might not need to modify anything at all, for this step!) Qrack currently only provides a "qasm_simulator" backend API, because Qrack's novel simulation method optimizations don't necessarily internally track a traditional state vector representation at all, except when expedient. Hence, Qrack benefits from an API formulated in terms of gate primitives and measurement distributions that resembling a native quantum hardware interface.
+3. If you must, adapt your script to use the "qasm_simulator" backend API. (You might not need to modify anything at all, for this step!) Qrack currently only provides a "qasm_simulator" backend API, because Qrack's novel simulation method optimizations don't necessarily internally track a traditional state vector representation at all, except when expedient. Hence, Qrack benefits from an API formulated in terms of gate primitives and measurement distributions that closely resemble a native quantum hardware interface.
 
 That's it! Enjoy GPU-acceleration and Qrack's "transparent" novel optimization layers! (For example, try writing Clifford group stabilizer programs to run with the default simulator backend configuration, and watch Qrack automatically detect that the program should execute as stabilizer simulation!)
 
