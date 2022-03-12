@@ -1,6 +1,13 @@
 Implementation
 ==============
 
+Organizational Chart
+--------------------------------
+
+.. image:: performance/qrack_org_chart.png
+
+In overview, Qrack freely mixes simulator representations, between "Schrödinger method"/"ket," stabilizer tableau, and Schmidt decomposed representations of both ket and stabilizer. `Qrack::QStabilizerHybrid` will attempt to maintain stabilizer representation for as deep as possible into a circuit, then switch over internally to ket representation when it encounters an operation it cannot carry out with Clifford and Pauli gates. For ket simulation, we have both CPU and GPU based implementations, which will be automatically switched between as opportune by `QHybrid`. `QUnit` creates a collection of partially Schmidt decomposed peer simulator types, like `QStabilizerHybrid` representation over `QHybrid` (or `QPager`, for Intel-QS-like "paged" simulation across different maximum allocation segments on one or more GPU devices).
+
 QEngine
 --------------------------------
 
