@@ -90,11 +90,7 @@ Qrack maintains a low-width edge over other GPU simulations by "hybridizing" CPU
 Further Work
 ************
 
-The above results will be presented at the "Advanced Simulations of Quantum Computations Workshop," at QCE'21.
-
 An option to simulate with CUDA, as opposed to OpenCL, might benefit execution time on systems with NVIDIA devices, such as the one used to collect test results for this page.
-
-With the PyQrack layer functioning well, we have optionally wrapped it in a Qiskit ProviderV1 module. The provider module has not had an "official release," pending performance and stability improvements, but it is publicly available as open source software on GitHub. Further development and experiments will be done to assess the feasibility of improving Qrack and PyQrack performance with the Qiskit framework.
 
 We will maintain systematic comparisons to published benchmarks of quantum computer simulation standard libraries, as they arise.
 
