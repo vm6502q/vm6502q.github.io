@@ -60,7 +60,8 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::SetQuantumState
 .. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr)
 .. doxygenfunction:: Qrack::QInterface::Compose(QInterfacePtr, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Decompose
+.. doxygenfunction:: Qrack::QInterface::Decompose(bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Decompose(bitLenInt, QInterfacePtr)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, bitCapInt)
 .. doxygenfunction:: Qrack::QInterface::Prob
@@ -92,7 +93,7 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TryDecompose
 .. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const std::vector<bitCapInt>&, unsigned)
-.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const std::vector<bitCapInt>&, unsigned, unsigned *)
+.. doxygenfunction:: Qrack::QInterface::MultiShotMeasureMask(const std::vector<bitCapInt>&, unsigned, unsigned long long *)
 .. doxygenfunction:: Qrack::QInterface::ApproxCompare
 .. doxygenfunction:: Qrack::QInterface::TimeEvolve
 
@@ -144,8 +145,6 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::SqrtY(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ISqrtY(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::SqrtH(bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::SqrtXConjT(bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ISqrtXConjT(bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::PhaseRootN(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::IPhaseRootN(bitLenInt, bitLenInt)
@@ -164,7 +163,8 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::RZ(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZ(real1_f, bitLenInt, bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, complex const*)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, complex const *)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, complex const *, const std::vector<bitCapInt>&, bitCapInt)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY(const std::vector<bitLenInt>&, bitLenInt, real1 const*)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ(const std::vector<bitLenInt>&, bitLenInt, real1 const*)
 
@@ -180,18 +180,10 @@ Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_A
 .. doxygenfunction:: Qrack::QInterface::INCC
 .. doxygenfunction:: Qrack::QInterface::INCS
 .. doxygenfunction:: Qrack::QInterface::DECS
-.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::MUL
-.. doxygenfunction:: Qrack::QInterface::DIV
-.. doxygenfunction:: Qrack::QInterface::CMUL
-.. doxygenfunction:: Qrack::QInterface::CDIV
 .. doxygenfunction:: Qrack::QInterface::MULModNOut
 .. doxygenfunction:: Qrack::QInterface::IMULModNOut
 .. doxygenfunction:: Qrack::QInterface::CMULModNOut
 .. doxygenfunction:: Qrack::QInterface::CIMULModNOut
-.. doxygenfunction:: Qrack::QInterface::POWModNOut
-.. doxygenfunction:: Qrack::QInterface::CPOWModNOut
 
 .. doxygenfunction:: Qrack::QInterface::FullAdd
 .. doxygenfunction:: Qrack::QInterface::IFullAdd
@@ -202,11 +194,6 @@ Qrack can build with quantum arithmetic methods, using CMake option ``-DENABLE_A
 .. doxygenfunction:: Qrack::QInterface::IADC
 .. doxygenfunction:: Qrack::QInterface::CADC
 .. doxygenfunction:: Qrack::QInterface::CIADC
-
-.. doxygenfunction:: Qrack::QInterface::IndexedLDA
-.. doxygenfunction:: Qrack::QInterface::IndexedADC
-.. doxygenfunction:: Qrack::QInterface::IndexedSBC
-.. doxygenfunction:: Qrack::QInterface::Hash
 
 Algorithmic Implementations
 ---------------------------

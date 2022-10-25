@@ -38,6 +38,8 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     :maxdepth: 2
 
     api/qinterface
+    api/qalu
+    api/qparity
     api/oclengine
     api/qengine
     api/qenginecpu
