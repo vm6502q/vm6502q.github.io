@@ -58,13 +58,11 @@ The "quantum" (or "discrete") Fourier transform (QFT/DFT) is a realistic and imp
 
 .. image:: performance/qft.png
 
-Likely due to a combination of all of its optimization "layers" and techniques, including Schmidt decomposition, "hybridization" of CPU with GPU simulation, and "hybridization" of stabilizer methods with "Schrödinger method," Qrack clearly outperforms purely GPU based simulations at low qubit widths. Recall that Qrack uses a representatively "hard" initialization with uniformly random single qubit unitary gates on this test as described above. We can see on the faster PyQrack series, permutation basis eigenstate inputs are much more quickly executed, for example. Qrack has historically been the only candidate tested which exhibits special case performance on the QFT, as for random permutation basis eigenstate initialization.
-
-Similarly, on random universal circuits, defined above and in the benchmark repository, Qrack leads at low qubit widths.
+Similarly, on random universal circuits, defined above and in the benchmark repository, Qrack leads at low qubit widths, (compared to anticipated hardware).
 
 .. image:: performance/random_universal.png
 
-For "Sycamore" circuits, argued by other authors to establish "quantum supremacy" of native quantum hardware, Qrack maintains is low-width relative performance edge, (with PyQrack optimization options disabled except CPU/GPU hybridization, but still using "paging" with the C++ "QPager" layer).
+For "Sycamore" circuits, argued by other authors to establish "quantum supremacy" of native quantum hardware, Qrack maintains its low-width relative performance.
 
 .. image:: performance/sycamore.png
 
