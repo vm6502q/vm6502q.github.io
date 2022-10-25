@@ -19,4 +19,5 @@ Methods
 .. doxygenfunction:: Qrack::QParity::UniformParityRZ
 .. doxygenfunction:: Qrack::QParity::CUniformParityRZ
 .. doxygenfunction:: Qrack::QParity::ProbParity
-.. doxygenfunction:: Qrack::QParity::MParityRZ
+.. doxygenfunction:: Qrack::QParity::MParity
+.. doxygenfunction:: Qrack::QParity::ForceMParity
