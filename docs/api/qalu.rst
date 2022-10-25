@@ -2,7 +2,7 @@
 
 .. Copyright (c) 2017-2021
 
-QInterface
+QAlu
 ========================
 
 Defined in `qalu.hpp <https://github.com/vm6502q/qrack/blob/master/include/qalu.hpp>`_.

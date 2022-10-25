@@ -86,8 +86,6 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ
-.. doxygenfunction:: Qrack::QInterface::UniformParityRZ
-.. doxygenfunction:: Qrack::QInterface::CUniformParityRZ
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)

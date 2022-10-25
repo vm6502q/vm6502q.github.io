@@ -2,7 +2,7 @@
 
 .. Copyright (c) 2017-2021
 
-QInterface
+QParity
 ========================
 
 Defined in `qparity.hpp <https://github.com/vm6502q/qrack/blob/master/include/qparity.hpp>`_.
