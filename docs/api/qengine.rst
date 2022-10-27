@@ -21,9 +21,9 @@ This is an (abstract) intermediate specialization that inherits from Qrack::QInt
 
 .. doxygenfunction:: Qrack::QEngine::GetAmplitudePage
 
-.. doxygenfunction:: Qrack::QEngine::SetAmplitudePage(const complex *, const bitCapIntOcl, const bitCapIntOcl)
+.. doxygenfunction:: Qrack::QEngine::SetAmplitudePage(complex const *, bitCapIntOcl, bitCapIntOcl)
 
-.. doxygenfunction:: Qrack::QEngine::SetAmplitudePage(QEnginePtr, const bitCapIntOcl, const bitCapIntOcl, const bitCapIntOcl)
+.. doxygenfunction:: Qrack::QEngine::SetAmplitudePage(QEnginePtr, bitCapIntOcl, bitCapIntOcl, bitCapIntOcl) 
 
 .. doxygenfunction:: Qrack::QEngine::ShuffleBuffers
 

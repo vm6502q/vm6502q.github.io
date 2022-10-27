@@ -13,4 +13,4 @@ Qrack::QInterface::TrySeparate() is primarily intended for use with Qrack::QUnit
 
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::TrySeparate(bitLenInt *, bitLenInt, real1_f)
+.. doxygenfunction:: Qrack::QInterface::TrySeparate(const std::vector<bitLenInt>&, real1_f)

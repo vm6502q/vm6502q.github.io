@@ -1,6 +1,6 @@
 :orphan:
 
-.. Copyright (c) 2017-2021
+.. Copyright (c) 2017-2022
 
 QAlu
 ========================
