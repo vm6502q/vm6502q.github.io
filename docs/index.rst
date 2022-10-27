@@ -48,7 +48,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qstabilizerhybrid
     api/qunit
     api/qunitmulti
-    api/qbinarydecisiontree
+    api/qbdt
     api/6502
 
 .. The #http:// is a hack to get around Sphinx's re parser for links,
@@ -74,5 +74,5 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     QStabilizerHybrid </en/latest/_static/doxygen/classQrack_1_1QStabilizerHybrid.html#http://>
     QUnit </en/latest/_static/doxygen/classQrack_1_1QUnit.html#http://>
     QUnitMulti </en/latest/_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
-    QBinaryDecisionTree </en/latest/_static/doxygen/classQrack_1_1QBinaryDecisionTree.html#http://>
+    QBdt </en/latest/_static/doxygen/classQrack_1_1QBdt.html#http://>
 
