@@ -30,6 +30,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     opencl
     examples
     implementation
+    noisy
     performance
 
 .. toctree::
