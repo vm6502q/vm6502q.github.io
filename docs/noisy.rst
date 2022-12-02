@@ -7,7 +7,7 @@ The calibration table can estimate "heavy output generation" ("HOG") rate as a f
 
 .. math::
 
-    \ln \left( \left[ Infidelity \, of \, your \, circuit \right] \right) = \ln \left( \left[ Infidelity \, of \, square \, depth \, circuit \right] \right) \frac{\ln \left( \left[ depth \right] \right)}{\ln \left( \left[ width \right] \right)}.
+    \frac{\ln \left( \left[ Infidelity \, of \, square \, depth \, circuit \right] \right)}{\ln \left( \left[ Infidelity \, of \, your \, circuit \right] \right)} = \frac{\ln \left( \left[ width \right] \right)}{\ln \left( \left[ depth \right] \right)}.
     
 A pessimistic estimate for fidelity, based upon HOG rate, is provided as
 
