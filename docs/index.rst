@@ -32,6 +32,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     implementation
     noisy
     performance
+    hardware
 
 .. toctree::
     :hidden:

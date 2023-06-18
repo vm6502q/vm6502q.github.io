@@ -14,7 +14,7 @@ Quantum Computational Basics
 .. [Susskind] `Modern Physics: Quantum Mechanics, by Dr. Leonard Susskind <https://www.youtube.com/watch?v=2h1E3YJMKfA>`_
 .. [WiredSummary] `Wired's Overview of the Industry <https://www.wired.com/story/the-era-of-quantum-computing-is-here-outlook-cloudy/>`_
 .. [AlgoZoo] `Quantum Algorithm Zoo <https://math.nist.gov/quantum/zoo/>`_
-.. [QC10th] `Quantum Computing 10th Edition - Nielson and Chuang <http://www-reynal.ensea.fr/docs/iq/QC10th.pdf>`_
+.. [QC10th] `Quantum Computing 10th Edition - Nielson and Chuang <http://mmrc.amss.cas.cn/tlb/201702/W020170224608149940643.pdf>`_
 .. [QAVLA] `Quantum Algorithms via Linear Algebra: A Primer - Lipton and Regan <http://mmrc.amss.cas.cn/tlb/201702/W020170224608149911380.pdf>`_
 
 Grover Search Algorithm
