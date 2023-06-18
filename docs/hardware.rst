@@ -11,7 +11,7 @@ Output Unitary Clifford+RZ Simulation For Quantum Hardware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is theoretically possible to use the Clifford+RZ improvements of v8.12 to compile for hardware. (`QUnit` cannot be used over `QStabilizerHybrid`, for this.)
 
-Since v8.13, it is now possible to pipe any output `QStabilizerHybrid` state to an output stream with the `<<` operator, (not while using `QUnit`). The files have the following format, by line:
+Since v8.13, it is now possible to pipe any output `QStabilizerHybrid` state to an output stream with the `<<` operator, (not while using `QUnit`). (In PyQrack, with class method `QrackSimulator.file_to_qiskit_circuit(filename)`, we perform the algorithm that follows, to produce a Qiskit circuit.) The files have the following format, by line:
 
 [Logical qubit count]
 
