@@ -31,6 +31,9 @@ Via `QCircuitGate`, the fundamental "atomic" gate of a `QCircuit` is "uniformly 
 .. doxygenfunction:: Qrack::QCircuit::DeletePhaseTarget(bitLenInt, bool)
 .. doxygenfunction:: Qrack::QCircuit::PastLightCone(std::set<bitLenInt>&)
 
+QCircuitGate
+========================
+
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate()
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, const complex[])
