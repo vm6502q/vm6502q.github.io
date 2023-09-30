@@ -9,6 +9,8 @@ Defined in `QCircuit.hpp <https://github.com/vm6502q/qrack/blob/main/include/qci
 
 This is a class that represents and optimizes a simple quantum "circuit," (without directly simulating it). Its constructor argument turns on-the-fly circuit simplification on or off.
 
+Via `QCircuitGate`, the fundamental "atomic" gate of a `QCircuit` is "uniformly controlled." (See `Quantum circuits with uniformly controlled one-qubit gates <https://arxiv.org/abs/quant-ph/0410066)>`_.) In other words, a different "target qubit payload" (as a 2x2 operator on a single qubit, controlled) is associated with every logical permutation of control qubits, which can greatly optimize performance through coalescence in an efficient form for state vector simulation.
+
 .. doxygenfunction:: Qrack::QCircuit::QCircuit(bool)
 .. doxygenfunction:: Qrack::QCircuit::QCircuit(bitLenInt, const std::list<QCircuitGatePtr>&, bool)
 .. doxygenfunction:: Qrack::QCircuit::Clone()
