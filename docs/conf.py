@@ -51,7 +51,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'breathe',
+    'breathe'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -114,6 +114,7 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+html_extra_path = ['_build/html']
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
@@ -210,4 +211,4 @@ cpp_index_common_prefix = ['Qrack::CoherentUnit::', 'Qrack::Complex16Simd::', 'C
 suppress_warnings = ['ref.citation']
 
 def setup(app):
-    app.add_stylesheet("theme_overrides.css")
+    app.add_css_file("theme_overrides.css")
