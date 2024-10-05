@@ -30,7 +30,6 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     opencl
     examples
     implementation
-    noisy
     performance
     hardware
 
@@ -52,6 +51,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qunitmulti
     api/qbdt
     api/qtensornetwork
+    api/qinterface_noisy
     api/qcircuit
     api/6502
 
@@ -80,5 +80,6 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     QUnitMulti </en/latest/_static/doxygen/classQrack_1_1QUnitMulti.html#http://>
     QBdt </en/latest/_static/doxygen/classQrack_1_1QBdt.html#http://>
     QTensorNetwork </en/latest/_static/doxygen/classQrack_1_1QTensorNetwork.html#http://>
+    QInterfaceNoisy </en/latest/_static/doxygen/classQrack_1_1QInterfaceNoisy.html#http://>
     QCircuit </en/latest/_static/doxygen/classQrack_1_1QCircuit.html#http://>
 
