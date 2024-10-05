@@ -11,6 +11,6 @@ Qrack::QHybrid is a Qrack::Engine that switches between QEngineCPU and QEngineOC
 
 The parameter "qubitThreshold" is the number of qubits at which QHybrid will automatically switch to GPU operation. A value of "0" will automatically pick this threshold based on best estimates of efficiency.
 
-.. doxygenfunction:: Qrack::QHybrid::QHybrid(bitLenInt, const bitCapInt&, qrack_rand_gen_ptr, const complex&, bool, bool, bool, int, bool, bool, real1_f, std::vector<int>, bitLenInt)
+.. doxygenfunction:: Qrack::QHybrid::QHybrid(bitLenInt, const bitCapInt&, qrack_rand_gen_ptr, const complex&, bool, bool, bool, int64_t, bool, bool, real1_f, std::vector<int>, bitLenInt)
 
 .. doxygenfunction:: Qrack::QHybrid::SwitchModes

@@ -11,8 +11,8 @@ This is a class that represents and optimizes a simple quantum "circuit," (witho
 
 Via `QCircuitGate`, the fundamental "atomic" gate of a `QCircuit` is "uniformly controlled." (See `Quantum circuits with uniformly controlled one-qubit gates <https://arxiv.org/abs/quant-ph/0410066>`_.) In other words, a different "target qubit payload" (as a 2x2 operator on a single qubit, controlled) is associated with every logical permutation of control qubits, which can greatly optimize performance through coalescence in an efficient form for state vector simulation.
 
-.. doxygenfunction:: Qrack::QCircuit::QCircuit(bool)
-.. doxygenfunction:: Qrack::QCircuit::QCircuit(bitLenInt, const std::list<QCircuitGatePtr>&, bool)
+.. doxygenfunction:: Qrack::QCircuit::QCircuit(bool, bool)
+.. doxygenfunction:: Qrack::QCircuit::QCircuit(bitLenInt, const std::list<QCircuitGatePtr>&, bool, bool)
 .. doxygenfunction:: Qrack::QCircuit::Clone()
 .. doxygenfunction:: Qrack::QCircuit::Inverse()
 .. doxygenfunction:: Qrack::QCircuit::Append(QCircuitPtr)
@@ -37,5 +37,5 @@ QCircuitGate
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate()
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, const complex[])
-.. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, const complex[], const std::set<bitLenInt>&, bitCapInt)
+.. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, const complex[], const std::set<bitLenInt>&, const bitCapInt&)
 .. doxygenfunction:: Qrack::QCircuitGate::QCircuitGate(bitLenInt, const std::map<bitCapInt, std::shared_ptr<complex>>&, const std::set<bitLenInt>&)

@@ -16,8 +16,8 @@ This is an interface layer, separate from and in addition to `Qrack::QInterface`
 Arithmetic
 --------------------------
 
-.. doxygenfunction:: Qrack::QAlu::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QAlu::INCSC(bitCapInt, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QAlu::INCSC(const bitCapInt&, bitLenInt, bitLenInt, bitLenInt, bitLenInt)
+.. doxygenfunction:: Qrack::QAlu::INCSC(const bitCapInt&, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QAlu::MUL
 .. doxygenfunction:: Qrack::QAlu::DIV
 .. doxygenfunction:: Qrack::QAlu::CMUL

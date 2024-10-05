@@ -23,7 +23,7 @@ OCLEngine is a singleton class that manages all OpenCL devices and supported obj
 Configuration Methods
 ---------------------------------
 
-.. doxygenfunction:: Qrack::OCLEngine::GetDeviceContextPtr(const int&)
+.. doxygenfunction:: Qrack::OCLEngine::GetDeviceContextPtr(const int64_t&)
 .. doxygenfunction:: Qrack::OCLEngine::GetDeviceContextPtrVector()
 .. doxygenfunction:: Qrack::OCLEngine::SetDeviceContextPtrVector(std::vector<DeviceContextPtr>, DeviceContextPtr)
 .. doxygenfunction:: Qrack::OCLEngine::GetDeviceCount()
