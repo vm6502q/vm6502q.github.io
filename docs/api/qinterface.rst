@@ -63,7 +63,7 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Decompose(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Decompose(bitLenInt, QInterfacePtr)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, bitCapInt)
+.. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, const bitCapInt&)
 .. doxygenfunction:: Qrack::QInterface::Prob
 .. doxygenfunction:: Qrack::QInterface::ProbAll
 .. doxygenfunction:: Qrack::QInterface::ProbReg
@@ -73,17 +73,13 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::GetProbs
 .. doxygenfunction:: Qrack::QInterface::ExpectationBitsAll
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ISwap(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::ISwap(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::SqrtSwap(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::SqrtSwap(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CSwap(const std::vector<bitLenInt>&, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::AntiCSwap(const std::vector<bitLenInt>&, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CSqrtSwap(const std::vector<bitLenInt>&, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::AntiCSqrtSwap(const std::vector<bitLenInt>&, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::FSim(real1_f, real1_f, bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY
 .. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ
 .. doxygenfunction:: Qrack::QInterface::Reverse(bitLenInt, bitLenInt)
@@ -105,13 +101,13 @@ Quantum Gates
 Single Gates
 ~~~~~~~~~~~~
 
-.. doxygenfunction:: Qrack::QInterface::Mtrx(complex const*, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::MCMtrx(const std::vector<bitLenInt>&, complex const*, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::MACMtrx(const std::vector<bitLenInt>&, complex const*, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Phase(const complex, const complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Mtrx(const complex*, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MCMtrx(const std::vector<bitLenInt>&, const complex*, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::MACMtrx(const std::vector<bitLenInt>&, const complex*, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Phase(const complex&, const complex&, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::MCPhase(const std::vector<bitLenInt>&, complex, complex, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::MACPhase(const std::vector<bitLenInt>&, complex, complex, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::Invert(const complex, const complex, bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Invert(const complex&, const complex&, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::MCInvert(const std::vector<bitLenInt>&, complex, complex, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::MACInvert(const std::vector<bitLenInt>&, complex, complex, bitLenInt)
 
@@ -125,8 +121,8 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::M(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::ForceM(bitLenInt, bool, bool, bool)
 
-.. doxygenfunction:: Qrack::QInterface::U(bitLenInt, bitLenInt, real1_f, real1_f, real1_f)
-.. doxygenfunction:: Qrack::QInterface::U2(bitLenInt, bitLenInt, real1_f, real1_f)
+.. doxygenfunction:: Qrack::QInterface::U(bitLenInt, bitLenInt, real1_f, real1_f, real1_f lambda)
+.. doxygenfunction:: Qrack::QInterface::U2(bitLenInt, bitLenInt, real1_f, real1_f lambda)
 
 .. doxygenfunction:: Qrack::QInterface::H(bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::X(bitLenInt)
@@ -145,7 +141,6 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::SqrtH(bitLenInt)
 
 .. doxygenfunction:: Qrack::QInterface::PhaseRootN(bitLenInt, bitLenInt)
-.. doxygenfunction:: Qrack::QInterface::IPhaseRootN(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CPhaseRootN(bitLenInt, bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CIPhaseRootN(bitLenInt, bitLenInt, bitLenInt)
 
@@ -161,10 +156,10 @@ Single Gates
 .. doxygenfunction:: Qrack::QInterface::RZ(real1_f, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::CRZ(real1_f, bitLenInt, bitLenInt)
 
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, complex const *)
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, complex const *, const std::vector<bitCapInt>&, bitCapInt)
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY(const std::vector<bitLenInt>&, bitLenInt, real1 const*)
-.. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ(const std::vector<bitLenInt>&, bitLenInt, real1 const*)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, const complex*)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledSingleBit(const std::vector<bitLenInt>&, bitLenInt, const complex*, const std::vector<bitCapInt>&, bitCapInt)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledRY(const std::vector<bitLenInt>&, bitLenInt, const real1*)
+.. doxygenfunction:: Qrack::QInterface::UniformlyControlledRZ(const std::vector<bitLenInt>&, bitLenInt, const real1*)
 
 Arithmetic
 ----------

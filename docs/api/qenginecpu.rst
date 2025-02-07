@@ -9,4 +9,4 @@ Defined in `qengine_cpu.hpp <https://github.com/vm6502q/qrack/blob/master/includ
 
 The API is provided by Qrack::QInterface, via Qrack::Engine. This is a general purpose implementation of Qrack::QInterface, without OpenCL.
 
-.. doxygenfunction:: Qrack::QEngineCPU::QEngineCPU(bitLenInt, const bitCapInt&, qrack_rand_gen_ptr, const complex&, bool, bool, bool, int64_t, bool, bool, real1_f, std::vector<int>, bitLenInt)
+.. doxygenfunction:: Qrack::QEngineCPU::QEngineCPU(bitLenInt, const bitCapInt&, qrack_rand_gen_ptr, const complex&, bool, bool, bool, int64_t, bool, bool, real1_f, std::vector<int64_t>, bitLenInt, real1_f)
