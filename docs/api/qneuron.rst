@@ -7,7 +7,7 @@ QNeuron
 
 Defined in `qneuron.hpp <https://github.com/unitaryfoundation/qrack/blob/main/include/qneuron.hpp>`_.
 
-.. doxygenclass:: Qrack::QNeuon
+.. doxygenclass:: Qrack::QNeuron
     :project: qrack
 
 Activation Functions
