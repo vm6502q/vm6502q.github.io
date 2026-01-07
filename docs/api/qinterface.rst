@@ -64,6 +64,8 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::Decompose(bitLenInt, QInterfacePtr)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Dispose(bitLenInt, bitLenInt, const bitCapInt&)
+.. doxygenfunction:: Qrack::QInterface::Allocate(bitLenInt)
+.. doxygenfunction:: Qrack::QInterface::Allocate(bitLenInt, bitLenInt)
 .. doxygenfunction:: Qrack::QInterface::Prob
 .. doxygenfunction:: Qrack::QInterface::ProbAll
 .. doxygenfunction:: Qrack::QInterface::ProbReg
@@ -71,6 +73,8 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::ProbMaskAll
 .. doxygenfunction:: Qrack::QInterface::ProbBitsAll
 .. doxygenfunction:: Qrack::QInterface::HighestProbAll
+.. doxygenfunction:: Qrack::QInterface::HighestProbAll()
+.. doxygenfunction:: Qrack::QInterface::HighestProbAll(size_t)
 .. doxygenfunction:: Qrack::QInterface::GetProbs
 .. doxygenfunction:: Qrack::QInterface::ExpectationBitsAll
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt)
