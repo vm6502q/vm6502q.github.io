@@ -53,6 +53,7 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     api/qtensornetwork
     api/qinterface_noisy
     api/qcircuit
+    api/qneuron
     api/6502
 
 .. The #http:// is a hack to get around Sphinx's re parser for links,
@@ -82,4 +83,4 @@ Daniel Strano would like to specifically note that Benn Bollay is almost entirel
     QTensorNetwork </en/latest/_static/doxygen/classQrack_1_1QTensorNetwork.html#http://>
     QInterfaceNoisy </en/latest/_static/doxygen/classQrack_1_1QInterfaceNoisy.html#http://>
     QCircuit </en/latest/_static/doxygen/classQrack_1_1QCircuit.html#http://>
-
+    QCircuit </en/latest/_static/doxygen/classQrack_1_1QNeuron.html#http://>
