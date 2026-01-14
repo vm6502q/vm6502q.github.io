@@ -19,17 +19,14 @@ Activation Functions
 Constructors
 ------------
 
-.. doxygenfunction:: Qrack::QNeuron::QNeuron(QInterfacePtr, const std::vector<bitLenInt>&, bitLenInt, QNeuronActivationFn, real1_f, real1_f)
-.. doxygenfunction:: Qrack::QNeuron::QNeuron(const QNeuron&)
+.. doxygenfunction:: Qrack::QNeuron::QNeuron(QInterfacePtr, const std::vector<bitLenInt>&, const bitLenInt&)
+.. doxygenfunction:: Qrack::QNeuron::QNeuron(QNeuron&)
 
 Getters and Setters
 -------------------
 
 .. doxygenfunction:: Qrack::QNeuron::SetSimulator
 .. doxygenfunction:: Qrack::QNeuron::GetSimulator
-.. doxygenfunction:: Qrack::QNeuron::SetAlpha
-.. doxygenfunction:: Qrack::QNeuron::SetActivationFn
-.. doxygenfunction:: Qrack::QNeuron::GetActivationFn
 .. doxygenfunction:: Qrack::QNeuron::SetAngles
 .. doxygenfunction:: Qrack::QNeuron::GetAngles
 .. doxygenfunction:: Qrack::QNeuron::GetInputCount
