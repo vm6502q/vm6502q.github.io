@@ -74,6 +74,7 @@ State Manipulation Methods
 .. doxygenfunction:: Qrack::QInterface::ProbBitsAll
 .. doxygenfunction:: Qrack::QInterface::HighestProbAll()
 .. doxygenfunction:: Qrack::QInterface::HighestProbAll(size_t)
+.. doxygenfunction:: Qrack::QInterface::AreFactorized
 .. doxygenfunction:: Qrack::QInterface::GetProbs
 .. doxygenfunction:: Qrack::QInterface::ExpectationBitsAll
 .. doxygenfunction:: Qrack::QInterface::Swap(bitLenInt, bitLenInt)
